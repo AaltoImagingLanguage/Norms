@@ -12,14 +12,14 @@ from matplotlib import pyplot as plt
 import numpy as np
 from scipy.cluster.hierarchy import dendrogram, linkage
 from scipy.stats import spearmanr
-from sklearn.decomposition import PCA
-from run_zero_shot import run_zero_shot
-
-
-
+#from sklearn.decomposition import PCA
+#from run_zero_shot import run_zero_shot_leave1out
 
 norms_path = '/m/nbe/project/aaltonorms/'
 normpath = norms_path + 'data/norm_overlap/'
+
+#Directory for the figures to be created
+figure_dir = norms_path + 'figures/'
 
 #These are the files for different norm sets
 filenames = ['cslb_aaltoOverlap', 'vinson_aaltoOverlap', 'aalto85_aaltoOverlap',
@@ -47,8 +47,6 @@ cslb_ginterOL = get_normdata("cslb_ginterOverlap")
 ginter_cslbOL = get_normdata("ginter_cslbOverlap")
 ginter_vinsonOL = get_normdata("ginter_vinsonOverlap")
 
-#Directory for the figures to be created
-figure_dir = norms_path + 'figures/'
 
 stimulus_list = norms_path + 'stimulus_LUT/aaltonorms_stimulus_set.csv'
 
@@ -132,13 +130,13 @@ def hierarchical_clustering(norms, truncate=True):
 
 
 #Make distance matrices
-#compare_norms(aalto300_cslbOL, cslb_aaltoOL, "Aalto", "CSLB")
-#compare_norms(aalto300_vinsonOL, vinson_aaltoOL, "Aalto", "Vinson")
-#compare_norms(aalto300_aalto85OL, aalto85_aaltoOL, "Aalto", "Aalto85")
-#compare_norms(aalto300, ginter_aaltoOL, "Aalto", "Ginter")
-#compare_norms(aalto300_cmuOL, cmu_aaltoOL, "Aalto", "CMU")
-#compare_norms(cslb_ginterOL, ginter_cslbOL, "CSLB", "Ginter")
-#compare_norms(vinson_ginterOL, ginter_vinsonOL, "Vinson", "Ginter")
+compare_norms(aalto300_cslbOL, cslb_aaltoOL, "Aalto", "CSLB")
+compare_norms(aalto300_vinsonOL, vinson_aaltoOL, "Aalto", "Vinson")
+compare_norms(aalto300_aalto85OL, aalto85_aaltoOL, "Aalto", "Aalto85")
+compare_norms(aalto300, ginter_aaltoOL, "Aalto", "Ginter")
+compare_norms(aalto300_cmuOL, cmu_aaltoOL, "Aalto", "CMU")
+compare_norms(cslb_ginterOL, ginter_cslbOL, "CSLB", "Ginter")
+compare_norms(vinson_ginterOL, ginter_vinsonOL, "Vinson", "Ginter")
 
 #pca = PCA(n_components=2)
 #pca.fit(aalto300.transpose())
@@ -149,9 +147,12 @@ def hierarchical_clustering(norms, truncate=True):
 #plt.figure()
 #ax = plt.scatter(a[:,0], a[:,1], c=category.tolist())
 #plt.colorbar()
-output='/m/nbe/project/aaltonorms/results/zero_shot/aaltoVsCslb.mat'
-run_zero_shot(aalto300_cslbOL, cslb_aaltoOL, output=output, distance_metric='cosine')
+#output='/m/nbe/project/aaltonorms/results/zero_shot/aaltoVsCslb.mat'
+#run_zero_shot(aalto300_cslbOL, cslb_aaltoOL, output=output, distance_metric='cosine')
 
+#output='/m/nbe/project/aaltonorms/results/zero_shot/aaltoProductionVsGinter.mat'
+#run_zero_shot(aalto300, ginter_aaltoOL, output=output, distance_metric='cosine')
+#
 #output='/m/nbe/project/aaltonorms/results/zero_shot/aaltoProductionVsAalto85.mat'
 #run_zero_shot(aalto300_aalto85OL,aalto85_aaltoOL, output=output, distance_metric='cosine')
 

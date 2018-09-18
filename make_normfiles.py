@@ -72,14 +72,15 @@ def get_matlab_arrays(norm_file):
 
 #Make aalto300 dataframe with only those concepts that exist in the new norm
 #set 
-def select_aaltodata(names):
+def select_aaltodata(name_list, norm):
     df = pandas.DataFrame()
     cats = pandas.DataFrame()
-    for i, name in enumerate(names):
-        if isinstance(names[i], str):
-            origname = aaltostimuli.index.values[i] #Get corresponding aalto name
-            cat = aaltostimuli.loc[[origname],['category_id']]
-            cats = cats.append(cat)
+    for i, name in enumerate(name_list):
+        if isinstance(name_list[i], str):
+            origname =aaltostimuli.loc[aaltostimuli[norm] == name].index.tolist()[0]
+            #cat = aaltostimuli.loc[[origname],['category_id']]
+            #print(cat)
+            #cats = cats.append(cat.values[0][0])
             df.name = origname
             data = aalto300.loc[[origname]] #Get corresponding row from aalto300
             df = df.append(data)
@@ -201,11 +202,11 @@ cmunorms_orig = pandas.DataFrame(data = cmu_vectorarray.values,
 
 #Make aalto300 dataframe with only those concepts that exist in the CSLB/Vinson 
 #dataset      
-aalto300_cslbOverlap, cslb_catlist = select_aaltodata(cslb_names)
-aalto300_vinsonOverlap, vinson_catlist = select_aaltodata(vinson_names)
-aalto300_aalto85Overlap, aalto85_catlist = select_aaltodata(aalto85_names)
-aalto300, ginter_catlist = select_aaltodata(ginter_names)
-aalto300_cmuOverlap, cmu_catlist = select_aaltodata(cmu_names)
+aalto300_cslbOverlap, cslb_catlist = select_aaltodata(cslb_names, norm = 'cslb')
+aalto300_vinsonOverlap, vinson_catlist = select_aaltodata(vinson_names, 'vinson')
+aalto300_aalto85Overlap, aalto85_catlist = select_aaltodata(aalto85_names, norm = 'aalto85')
+aalto300, ginter_catlist = select_aaltodata(ginter_names, norm = 'ginter')
+aalto300_cmuOverlap, cmu_catlist = select_aaltodata(cmu_names, norm = 'cmu')
 
 
 #Make dataframes with only those concepts that exist in the aalto300 
@@ -214,11 +215,11 @@ vinson_aaltoOverlap = select_normdata(vinson_names, vinsonnorms_orig)
 ginter_aaltoOverlap = select_normdata(ginter_names, ginternorms_orig)
 cmu_aaltoOverlap = select_normdata(cmu_names, cmunorms_orig)
 
-#Select items that overlap in the ginter data
+##Select items that overlap in the ginter data
 cslb_ginterOverlap, ginter_cslbOverlap = select_normdata_ginter(cslbnorms_orig, cslb_ginter_names)
 vinson_ginterOverlap, ginter_vinsonOverlap = select_normdata_ginter(vinsonnorms_orig, vinson_ginter_names)
 
-#List of dataframes
+##List of dataframes
 normfiles = [aalto300_cslbOverlap, aalto300_vinsonOverlap, aalto300_aalto85Overlap,
 aalto300, aalto300_cmuOverlap, cslb_aaltoOverlap, aalto85_aaltoOverlap, vinson_aaltoOverlap, 
 ginter_aaltoOverlap, cmu_aaltoOverlap, cslb_ginterOverlap, 
