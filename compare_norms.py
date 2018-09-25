@@ -15,11 +15,11 @@ from scipy.stats import spearmanr
 #from sklearn.decomposition import PCA
 #from run_zero_shot import run_zero_shot_leave1out
 
-norms_path = '/m/nbe/project/aaltonorms/'
-normpath = norms_path + 'data/norm_overlap/'
+normpath = '/m/nbe/project/aaltonorms/data/'
+#normpath = norms_path + 'data/norm_overlap/'
 
 #Directory for the figures to be created
-figure_dir = norms_path + 'figures/'
+#figure_dir = norms_path + 'figures/'
 
 #These are the files for different norm sets
 #filenames = ['cslb_aaltoOverlap', 'vinson_aaltoOverlap', 'aalto85_aaltoOverlap',
@@ -48,25 +48,42 @@ def get_normdata(filename):
 #ginter_vinsonOL = get_normdata("ginter_vinsonOverlap")
 
 
-stimulus_list = norms_path + 'stimulus_LUT/aaltonorms_stimulus_set.csv'
+#stimulus_list = norms_path + 'stimulus_LUT/aaltonorms_stimulus_set.csv'
 
 #This is the list of Aalto production norms stimuli and the corresponding names
 #for the same stimuli in other norm sets
-aaltostimuli = pandas.read_table(
-    stimulus_list, encoding='utf-8', header=None, index_col=2,
-    names=['id', 'concept_eng', 'concept_fin', 'category', 'category_id', 
-    'allnorms', 'cmu', 'cslb', 'vinson', 'aalto85', 'ginter']
-)
-aaltostimuli.sort_values(by='category_id') #Sort concepts by category
+#aaltostimuli = pandas.read_table(
+#    stimulus_list, encoding='utf-8', header=None, index_col=2,
+#    names=['id', 'concept_eng', 'concept_fin', 'category', 'category_id', 
+#    'allnorms', 'cmu', 'cslb', 'vinson', 'aalto85', 'ginter']
+#)
+#aaltostimuli.sort_values(by='category_id') #Sort concepts by category
 
 #Get list of concept names
-cslb_names = aaltostimuli["cslb"]
-vinson_names = aaltostimuli["vinson"]
-orignames = aaltostimuli.index.values
-ginter_names = aaltostimuli["ginter"]
-cmu_names = aaltostimuli["cmu"]
-category = aaltostimuli ["category_id"]
+#cslb_names = aaltostimuli["cslb"]
+#vinson_names = aaltostimuli["vinson"]
+#orignames = aaltostimuli.index.values
+#ginter_names = aaltostimuli["ginter"]
+#cmu_names = aaltostimuli["cmu"]
+#category = aaltostimuli ["category_id"]
 #aalto85_names2 = aaltostimuli ["aalto85"] #To get category labels
+
+cslb = pandas.read_table(normpath + 'cslb/' + 'vectors.csv', encoding='utf-8', 
+                         header=None, index_col=None)
+
+vinson = pandas.read_table(normpath + 'vinson/' + 'vectors.csv', encoding='utf-8', 
+                         header=None, index_col=None)
+
+cslb_vocab = pandas.read_table(normpath + 'cslb/' + 'vocab.csv', encoding='utf-8', 
+                         header=None, index_col=None)
+
+vinson_vocab = pandas.read_table(normpath + 'vinson/' + 'vocab.csv', encoding='utf-8', 
+                         header=None, index_col=None)
+
+#Tässä pitäisi etsiä ne sanat, jotka löytyvät myös toisesta normisetistä. Käytä 
+#correspondece.csv tiedostoa.
+for name in cslb_vocab:
+    print(vinson_vocab.loc[name])
 
 
 def get_distances(norms):
@@ -77,6 +94,10 @@ def get_distances(norms):
     distvector = np.asarray(distmat.reshape(-1)) #Take upper triangular                                                     #and reshape
     distvector = distvector[~np.isnan(distvector)]
     return distmat_full, distvector
+
+
+
+
 
 def remove_ticks(ax):
     ax.axes.get_xaxis().set_ticks([])
@@ -130,13 +151,13 @@ def hierarchical_clustering(norms, truncate=True):
 
 
 #Make distance matrices
-compare_norms(aalto300_cslbOL, cslb_aaltoOL, "Aalto", "CSLB")
-compare_norms(aalto300_vinsonOL, vinson_aaltoOL, "Aalto", "Vinson")
-compare_norms(aalto300_aalto85OL, aalto85_aaltoOL, "Aalto", "Aalto85")
-compare_norms(aalto300, ginter_aaltoOL, "Aalto", "Ginter")
-compare_norms(aalto300_cmuOL, cmu_aaltoOL, "Aalto", "CMU")
-compare_norms(cslb_ginterOL, ginter_cslbOL, "CSLB", "Ginter")
-compare_norms(vinson_ginterOL, ginter_vinsonOL, "Vinson", "Ginter")
+#compare_norms(aalto300_cslbOL, cslb_aaltoOL, "Aalto", "CSLB")
+#compare_norms(aalto300_vinsonOL, vinson_aaltoOL, "Aalto", "Vinson")
+#compare_norms(aalto300_aalto85OL, aalto85_aaltoOL, "Aalto", "Aalto85")
+#compare_norms(aalto300, ginter_aaltoOL, "Aalto", "Ginter")
+#compare_norms(aalto300_cmuOL, cmu_aaltoOL, "Aalto", "CMU")
+#compare_norms(cslb_ginterOL, ginter_cslbOL, "CSLB", "Ginter")
+#compare_norms(vinson_ginterOL, ginter_vinsonOL, "Vinson", "Ginter")
 
 #pca = PCA(n_components=2)
 #pca.fit(aalto300.transpose())
