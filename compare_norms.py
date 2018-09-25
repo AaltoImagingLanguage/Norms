@@ -22,30 +22,30 @@ normpath = norms_path + 'data/norm_overlap/'
 figure_dir = norms_path + 'figures/'
 
 #These are the files for different norm sets
-filenames = ['cslb_aaltoOverlap', 'vinson_aaltoOverlap', 'aalto85_aaltoOverlap',
-'ginter_aaltoOverlap', 'cmu_aaltoOverlap', 'aalto300', 'aalto300_cslbOverlap',
-'aalto300_vinsonOverlap','aalto300_aalto85Overlap', 'aalto300_cmuOverlap', 
-'vinson_ginterOverlap', 'cslb_ginterOverlap', 'ginter_vinsonOverlap', 'ginter_cslbOverlap']
+#filenames = ['cslb_aaltoOverlap', 'vinson_aaltoOverlap', 'aalto85_aaltoOverlap',
+#'ginter_aaltoOverlap', 'cmu_aaltoOverlap', 'aalto300', 'aalto300_cslbOverlap',
+#'aalto300_vinsonOverlap','aalto300_aalto85Overlap', 'aalto300_cmuOverlap', 
+#'vinson_ginterOverlap', 'cslb_ginterOverlap', 'ginter_vinsonOverlap', 'ginter_cslbOverlap']
 
 def get_normdata(filename):   
     df = pandas.read_table(normpath + filename + '.csv', encoding='utf-8', 
     header=None, index_col=0)
     return df
 
-cslb_aaltoOL = get_normdata("cslb_aaltoOverlap")
-vinson_aaltoOL = get_normdata("vinson_aaltoOverlap")
-aalto85_aaltoOL = get_normdata("aalto85_aaltoOverlap")
-ginter_aaltoOL = get_normdata("ginter_aaltoOverlap")
-cmu_aaltoOL = get_normdata("cmu_aaltoOverlap")
-aalto300 = get_normdata("aalto300")
-aalto300_cslbOL = get_normdata("aalto300_cslbOverlap")
-aalto300_vinsonOL = get_normdata("aalto300_vinsonOverlap")
-aalto300_aalto85OL = get_normdata("aalto300_aalto85Overlap")
-aalto300_cmuOL = get_normdata("aalto300_cmuOverlap")
-vinson_ginterOL = get_normdata("vinson_ginterOverlap")
-cslb_ginterOL = get_normdata("cslb_ginterOverlap")
-ginter_cslbOL = get_normdata("ginter_cslbOverlap")
-ginter_vinsonOL = get_normdata("ginter_vinsonOverlap")
+#cslb_aaltoOL = get_normdata("cslb_aaltoOverlap")
+#vinson_aaltoOL = get_normdata("vinson_aaltoOverlap")
+#aalto85_aaltoOL = get_normdata("aalto85_aaltoOverlap")
+#ginter_aaltoOL = get_normdata("ginter_aaltoOverlap")
+#cmu_aaltoOL = get_normdata("cmu_aaltoOverlap")
+#aalto300 = get_normdata("aalto300")
+#aalto300_cslbOL = get_normdata("aalto300_cslbOverlap")
+#aalto300_vinsonOL = get_normdata("aalto300_vinsonOverlap")
+#aalto300_aalto85OL = get_normdata("aalto300_aalto85Overlap")
+#aalto300_cmuOL = get_normdata("aalto300_cmuOverlap")
+#vinson_ginterOL = get_normdata("vinson_ginterOverlap")
+#cslb_ginterOL = get_normdata("cslb_ginterOverlap")
+#ginter_cslbOL = get_normdata("ginter_cslbOverlap")
+#ginter_vinsonOL = get_normdata("ginter_vinsonOverlap")
 
 
 stimulus_list = norms_path + 'stimulus_LUT/aaltonorms_stimulus_set.csv'

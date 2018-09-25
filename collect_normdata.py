@@ -79,9 +79,12 @@ vinson_vectors.to_csv(out_path + 'vinson' + '/vectors.csv', header=False, index=
                 sep='\t', encoding='utf-8')
 
 norm_file = aalto300_file
+
 def get_matlab_arrays(norm_file):
     fname =norm_file
     m = loadmat(fname)
     vectorarray = pd.DataFrame(m['sorted']['mat'][0][0])
     wordarray = m['sorted']['word'][0][0]
     return vectorarray, wordarray
+ 
+ [x, y] = get_matlab_arrays(aalto300_file)
