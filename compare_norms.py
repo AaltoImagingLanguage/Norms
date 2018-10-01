@@ -32,41 +32,7 @@ def get_normdata(filename):
     header=None, index_col=0)
     return df
 
-#cslb_aaltoOL = get_normdata("cslb_aaltoOverlap")
-#vinson_aaltoOL = get_normdata("vinson_aaltoOverlap")
-#aalto85_aaltoOL = get_normdata("aalto85_aaltoOverlap")
-#ginter_aaltoOL = get_normdata("ginter_aaltoOverlap")
-#cmu_aaltoOL = get_normdata("cmu_aaltoOverlap")
-#aalto300 = get_normdata("aalto300")
-#aalto300_cslbOL = get_normdata("aalto300_cslbOverlap")
-#aalto300_vinsonOL = get_normdata("aalto300_vinsonOverlap")
-#aalto300_aalto85OL = get_normdata("aalto300_aalto85Overlap")
-#aalto300_cmuOL = get_normdata("aalto300_cmuOverlap")
-#vinson_ginterOL = get_normdata("vinson_ginterOverlap")
-#cslb_ginterOL = get_normdata("cslb_ginterOverlap")
-#ginter_cslbOL = get_normdata("ginter_cslbOverlap")
-#ginter_vinsonOL = get_normdata("ginter_vinsonOverlap")
 
-
-#stimulus_list = norms_path + 'stimulus_LUT/aaltonorms_stimulus_set.csv'
-
-#This is the list of Aalto production norms stimuli and the corresponding names
-#for the same stimuli in other norm sets
-#aaltostimuli = pandas.read_table(
-#    stimulus_list, encoding='utf-8', header=None, index_col=2,
-#    names=['id', 'concept_eng', 'concept_fin', 'category', 'category_id', 
-#    'allnorms', 'cmu', 'cslb', 'vinson', 'aalto85', 'ginter']
-#)
-#aaltostimuli.sort_values(by='category_id') #Sort concepts by category
-
-#Get list of concept names
-#cslb_names = aaltostimuli["cslb"]
-#vinson_names = aaltostimuli["vinson"]
-#orignames = aaltostimuli.index.values
-#ginter_names = aaltostimuli["ginter"]
-#cmu_names = aaltostimuli["cmu"]
-#category = aaltostimuli ["category_id"]
-#aalto85_names2 = aaltostimuli ["aalto85"] #To get category labels
 
 cslb = pandas.read_table(normpath + 'cslb/' + 'vectors.csv', encoding='utf-8', 
                          header=None, index_col=None)
@@ -80,10 +46,15 @@ cslb_vocab = pandas.read_table(normpath + 'cslb/' + 'vocab.csv', encoding='utf-8
 vinson_vocab = pandas.read_table(normpath + 'vinson/' + 'vocab.csv', encoding='utf-8', 
                          header=None, index_col=None)
 
+cslb_corr = cslb_vocab = pandas.read_table(normpath + 'cslb/' + 'correspondence.csv', encoding='utf-8', 
+                         header=0, index_col=0)
+
 #Tässä pitäisi etsiä ne sanat, jotka löytyvät myös toisesta normisetistä. Käytä 
 #correspondece.csv tiedostoa.
-for name in cslb_vocab:
-    print(vinson_vocab.loc[name])
+for name in cslb_corr['vinson']:
+   # print(name)
+    if isinstance(name, str):
+        print(name)#print(name)
 
 
 def get_distances(norms):
