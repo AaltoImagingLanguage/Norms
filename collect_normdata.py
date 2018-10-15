@@ -28,8 +28,7 @@ vinson_norms_file = norms_path + 'Vinson/VinsonFeature_Matrix.csv'
 aalto85_norms_file = norms_path + 'Aalto85questions/Aalto85_sorted20160204.mat'
 ginter_norms_file = norms_path + 'Ginter/ginter-300-5+5/AaltoNorm_words/lemma/context_5+5/ginter_lemma_5+5/concepts_vectors.csv'
 cmu_norms_file = norms_path + 'CMU/bagOfFeatures.mat'
-ginter_cslb_norms_file = norms_path + 'Ginter/ginter-300-5+5/cslb/concepts_vectors.csv'
-ginter_vinson_norms_file = norms_path + 'Ginter/ginter-300-5+5/vinson/concepts_vectors.csv'
+
 
 #Make lists of available concepts for each norm set (including overlapping words)
 for norm in norms:
@@ -79,6 +78,7 @@ vinson_vectors.to_csv(out_path + 'vinson' + '/vectors.csv', header=False, index=
                 sep='\t', encoding='utf-8')
 
 norm_file = aalto300_file
+
 
 def get_matlab_arrays(norm_file):
     fname =norm_file
