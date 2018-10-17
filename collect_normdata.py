@@ -3,88 +3,83 @@
 """
 Created on Fri Aug 24 13:55:53 2018
 
-@author: kivisas1
+@author: kivisas1 & annika
 """
 import pandas as pd
 import os
 from scipy.io import loadmat
+import csv
 
+def get_matlab_arrays(norm_file):
+    featurearray = []
+    fname =norm_file
+    m = loadmat(fname, variable_names='sorted')
+    vectorarray = pd.DataFrame(m['sorted']['mat'][0][0])
+    featurearray = m['sorted']['features'][0][0]
+    featurearray = [s[0][0] for s in featurearray]
+    return vectorarray,featurearray
+
+def write_array2csv(outfile, array):
+    with open(outfile, 'w') as myfile:
+        wr = csv.writer(myfile, quoting=csv.QUOTE_ALL, lineterminator='\n')
+        for r in array: wr.writerow([r]) 
+            
+# LUT = look-up-table
 LUT_file = '/m/nbe/project/aaltonorms/data/concept_LUT.csv'
 norms_path = '/m/nbe/project/aaltonorms/raw/'
 out_path = '/m/nbe/project/aaltonorms/data/'
-norms = ['cslb', 'aaltoprod', 'aalto85', 'vinson', 'cmu', 'mcrae']
+norms = ['cslb', 'vinson','aaltoprod', 'aalto85',  'cmu']
+# not implemented yet w2vFin and w2vEng  and 'mcrae
+# w2vFin: 'Ginter/ginter-300-5+5/AaltoNorm_words/lemma/context_5+5/ginter_lemma_5+5/concepts_vectors.csv',
 
-LUT = pd.read_table(
-    LUT_file, encoding='utf-8', header=0, index_col=0,
-)
+infiles = ['CSLB/feature_matrix.dat', 
+           'Vinson/VinsonFeature_Matrix.csv',
+           'AaltoProduction/lemma_sorted20151027_dl_synmerge.mat',
+           'Aalto85questions/Aalto85_sorted20160204.mat',
+           'CMU/bagOfFeatures_inStruct.mat']
 
+norms_dict = {}
+for i in range(len(norms)):
+    norms_dict[norms[i]] = infiles[i]
+    
+    
+LUT = pd.read_table(LUT_file, encoding='utf-8', header=0, index_col=0)
 #duplicates = LUT[LUT.duplicated(['FIN_name'], keep=False)]
-
-
-#These are the files for different norm sets
-cslb_norms_file  = norms_path + 'CSLB/feature_matrix.dat'
-aalto300_file = norms_path + 'AaltoProduction/lemma_sorted20151027_dl_synmerge.mat'
-vinson_norms_file = norms_path + 'Vinson/VinsonFeature_Matrix.csv'
-aalto85_norms_file = norms_path + 'Aalto85questions/Aalto85_sorted20160204.mat'
-ginter_norms_file = norms_path + 'Ginter/ginter-300-5+5/AaltoNorm_words/lemma/context_5+5/ginter_lemma_5+5/concepts_vectors.csv'
-cmu_norms_file = norms_path + 'CMU/bagOfFeatures.mat'
-
 
 #Make lists of available concepts for each norm set (including overlapping words)
 for norm in norms:
+    print('Now running: ' + norm)
     data = LUT.dropna(subset=[norm]) #Select concepts according to whether it is available in each respective norm set. 
     if not os.path.exists(out_path + norm): 
        os.makedirs(out_path + norm)
     #Save as text file
-    data.to_csv(out_path + norm + '/correspondence.csv', header=True, index=True, 
-                sep='\t', encoding='utf-8')   
+    data.to_csv(out_path + norm + '/correspondence.csv', header=True, index=True,  sep='\t', encoding='utf-8')   
 
+    #Select the words in a praticular norm set
+    temp = LUT[norm].dropna()    
 
+    if norms_dict.get(norm)[-3:]=='mat': 
+        [temp_vectors, featurearray] = get_matlab_arrays(norms_path + norms_dict.get(norm))
+        write_array2csv(out_path + norm + '/features.csv', featurearray)
+        
+    else:    
+        if  norms_dict.get(norm)[-3:]=='csv':  
+            delim = ','
+        else: # data is dat
+            delim = None
+            
+        temp_orig = pd.read_table(norms_path + norms_dict.get(norm), encoding='latin1', header=0, index_col=0, delimiter=delim)    
+        
+        if  norm == 'vinson': 
+            temp_orig = temp_orig.transpose()        
+        #Getvectors
+        temp_vectors = temp_orig.loc[temp] 
+        # Get features 
+        #FIXME w2v doesn't have feature labels so this step needs to be optional
+        temp_features = pd.DataFrame(temp_orig.columns.values)        
+        temp_features.to_csv(out_path + norm + '/features.csv', header=False, index=False, sep='\t', encoding='utf-8')
+        
+    # Save the remaining variables
+    temp_vectors.to_csv(out_path + norm + '/vectors.csv', header=False, index=False,  sep='\t', encoding='utf-8')
+    temp.to_csv(out_path + norm + '/vocab.csv', header=False, index=False,  sep='\t', encoding='utf-8')
 
-#Get feature vectors
-#This is the CSLB semantic concept x features matrix
-#Dimensions: 638 (concepts) x 2725(semantic features) array
-    
-cslb = LUT['cslb'].dropna() #List of CSLB stimuli
-cslb_orig = pd.read_table(cslb_norms_file, encoding='latin1', 
-                                   header=0, index_col=0)    
-cslb_vectors = cslb_orig.loc[cslb]
-
-#Save feature list to file
-cslb_features = pd.DataFrame(cslb_orig.columns.values)
-cslb_features.to_csv(out_path + 'cslb' + '/features.csv', header=False, index=False, 
-                sep='\t', encoding='utf-8')
-cslb.to_csv(out_path + 'cslb' + '/vocab.csv', header=False, index=False, 
-                sep='\t', encoding='utf-8')
-cslb_vectors.to_csv(out_path + 'cslb' + '/vectors.csv', header=False, index=False, 
-                sep='\t', encoding='utf-8')
-
-#Vinson full semantic concept x features matrix
-#Dimensions: 173 (concepts) x 1027(semantic features) array
-vinson = LUT['vinson'].dropna() 
-vinson_orig = pd.read_table(vinson_norms_file, encoding='latin1', 
-                                     header=0, index_col=0, delimiter=",")
-vinson_orig = vinson_orig.transpose()
-vinson_vectors = vinson_orig.loc[vinson]
-
-#Save feature list to file
-vinson_features = pd.DataFrame(vinson_orig.columns.values)
-vinson_features.to_csv(out_path + 'vinson' + '/features.csv', header=False, index=False, 
-                sep='\t', encoding='utf-8')
-#Save list of concepts
-vinson.to_csv(out_path + 'vinson' + '/vocab.csv', header=False, index=False)
-#Save list of vectors
-vinson_vectors.to_csv(out_path + 'vinson' + '/vectors.csv', header=False, index=False, 
-                sep='\t', encoding='utf-8')
-
-norm_file = aalto300_file
-
-
-def get_matlab_arrays(norm_file):
-    fname =norm_file
-    m = loadmat(fname)
-    vectorarray = pd.DataFrame(m['sorted']['mat'][0][0])
-    wordarray = m['sorted']['word'][0][0]
-    return vectorarray, wordarray
- 
- [x, y] = get_matlab_arrays(aalto300_file)
