@@ -17,15 +17,17 @@ def get_matlab_arrays(norm_file):
     vectorarray = pd.DataFrame(m['sorted']['mat'][0][0])
     featurearray = m['sorted']['features'][0][0]
     featurearray = [s[0][0] for s in featurearray]
-    return vectorarray,featurearray
+    wordarray = m['sorted']['word'][0][0]
+    wordarray = [s[0][0] for s in wordarray]
+    return vectorarray,featurearray, wordarray
 
 def write_array2csv(outfile, array):
     with open(outfile, 'w') as myfile:
-        wr = csv.writer(myfile, quoting=csv.QUOTE_ALL, lineterminator='\n')
+        wr = csv.writer(myfile, quoting=csv.QUOTE_NONE, lineterminator='\n')
         for r in array: wr.writerow([r]) 
             
 # LUT = look-up-table
-LUT_file = '/m/nbe/project/aaltonorms/data/concept_LUT.csv'
+LUT_file = '/m/nbe/project/aaltonorms/data/concept_LUT.csv' # FIXME use the xls sheet instead
 norms_path = '/m/nbe/project/aaltonorms/raw/'
 out_path = '/m/nbe/project/aaltonorms/data/'
 norms = ['cslb', 'vinson','aaltoprod', 'aalto85',  'cmu']
@@ -55,14 +57,13 @@ for norm in norms:
     #Save as text file
     data.to_csv(out_path + norm + '/correspondence.csv', header=True, index=True,  sep='\t', encoding='utf-8')   
 
-    #Select the words in a praticular norm set
-    temp = LUT[norm].dropna()    
 
     if norms_dict.get(norm)[-3:]=='mat': 
-        [temp_vectors, featurearray] = get_matlab_arrays(norms_path + norms_dict.get(norm))
+        [temp_vectors, featurearray, wordarray] = get_matlab_arrays(norms_path + norms_dict.get(norm))
         write_array2csv(out_path + norm + '/features.csv', featurearray)
-        
-    else:    
+        write_array2csv(out_path + norm + '/vocab.csv', wordarray)
+    else:             
+        temp = LUT[norm].dropna()     # selct the words in the norm set
         if  norms_dict.get(norm)[-3:]=='csv':  
             delim = ','
         else: # data is dat
@@ -78,8 +79,9 @@ for norm in norms:
         #FIXME w2v doesn't have feature labels so this step needs to be optional
         temp_features = pd.DataFrame(temp_orig.columns.values)        
         temp_features.to_csv(out_path + norm + '/features.csv', header=False, index=False, sep='\t', encoding='utf-8')
+        temp.to_csv(out_path + norm + '/vocab.csv', header=False, index=False,  sep='\t', encoding='utf-8')
         
-    # Save the remaining variables
+    # Save the remaining variable
     temp_vectors.to_csv(out_path + norm + '/vectors.csv', header=False, index=False,  sep='\t', encoding='utf-8')
-    temp.to_csv(out_path + norm + '/vocab.csv', header=False, index=False,  sep='\t', encoding='utf-8')
+
 
