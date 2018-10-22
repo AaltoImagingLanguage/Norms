@@ -43,7 +43,7 @@ for i= 1:length(catnames)
     else % plot scaled text
         % Compute the distance beween each word and all cell centers
         D = pdist2(vectormat, sM2.codebook, 'euclidean');
-        som_show_add_marijn('label', sM2, 'distances', D, 'vocab',vocab,...
+        som_show_add_scaled('label', sM2, 'distances', D, 'vocab',vocab,...
             'textsize', 4,'TextColor',  clr(i,:) );
     end
     
