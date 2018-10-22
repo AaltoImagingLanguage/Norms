@@ -5,7 +5,7 @@ addpath '~/code/semanticspace/matfunc'
 close all
 clear all
 %% Common Parameters
-msize = 150;
+msize = 75;
 shape = 'toroid';
 
 dpath = '/m/nbe/project/aaltonorms/';
@@ -18,8 +18,8 @@ vocab  = importdata([dpath 'data/' normset{n} '/vocab.csv']);
 
 % Compute SOM
 sD = som_data_struct(vectormat, 'labels', vocab);
-%sM = som_make(sD,'munits', msize, 'shape', shape);
-sM = som_make(sD);
+sM = som_make(sD,'munits', msize, 'shape', shape);
+%sM = som_make(sD);
 [qe(n),te(n)] = som_quality(sM,sD);
 
 som_show_category(catnames,catind,vectormat,vocab, sM , 0, n);
