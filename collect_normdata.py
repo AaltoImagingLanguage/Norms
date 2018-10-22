@@ -23,7 +23,7 @@ def get_matlab_arrays(norm_file):
 
 def write_array2csv(outfile, array):
     with open(outfile, 'w') as myfile:
-        wr = csv.writer(myfile, quoting=csv.QUOTE_NONE, lineterminator='\n')
+        wr = csv.writer(myfile, quoting=csv.QUOTE_MINIMAL, lineterminator='\n')
         for r in array: wr.writerow([r]) 
             
 # LUT = look-up-table
@@ -36,7 +36,7 @@ norms = ['cslb', 'vinson','aaltoprod', 'aalto85',  'cmu']
 
 infiles = ['CSLB/feature_matrix.dat', 
            'Vinson/VinsonFeature_Matrix.csv',
-           'AaltoProduction/lemma_sorted20151027_dl_synmerge.mat',
+           'AaltoProduction/lemma_sorted20151027_dl_synmerge2.mat',
            'Aalto85questions/Aalto85_sorted20160204.mat',
            'CMU/bagOfFeatures_inStruct.mat']
 
