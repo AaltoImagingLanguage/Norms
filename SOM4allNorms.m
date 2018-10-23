@@ -25,7 +25,6 @@ sM = som_make(sD,'munits', msize, 'shape', shape);
 som_show_category(catnames,catind,vectormat,vocab, sM , 0, n);
 title([normset{n} ' ' num2str(sM.topol.msize) ' ' sM.topol.shape], 'Interpreter', 'none')
 
-
 outname = [ dpath 'results/SOM/2ndRUN/' normset{n} '_' num2str(sM.topol.msize(1)*sM.topol.msize(2)) sM.topol.shape];
 print(outname,'-dpdf','-fillpage')
 save(outname, 'sM', 'sD')

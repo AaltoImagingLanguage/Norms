@@ -9,6 +9,7 @@ import pandas as pd
 import os
 from scipy.io import loadmat
 import csv
+import numpy as np
 
 def get_matlab_arrays(norm_file):
     featurearray = []
@@ -61,6 +62,7 @@ for norm in norms:
     if norms_dict.get(norm)[-3:]=='mat': 
         [temp_vectors, featurearray, wordarray] = get_matlab_arrays(norms_path + norms_dict.get(norm))
         write_array2csv(out_path + norm + '/features.csv', featurearray)
+        wordarray = np.core.defchararray.lower(wordarray)
         write_array2csv(out_path + norm + '/vocab.csv', wordarray)
     else:             
         temp = LUT[norm].dropna()     # selct the words in the norm set
