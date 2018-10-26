@@ -28,7 +28,8 @@ def write_array2csv(outfile, array):
         for r in array: wr.writerow([r]) 
             
 # LUT = look-up-table
-LUT_file = '/m/nbe/project/aaltonorms/data/concept_LUT.csv' # FIXME use the xls sheet instead
+#LUT_file = '/m/nbe/project/aaltonorms/data/concept_LUT.csv' # FIXME use the xls sheet instead
+LUT_file = '/m/nbe/project/aaltonorms/data/SuperNormList.xlsx'
 norms_path = '/m/nbe/project/aaltonorms/raw/'
 out_path = '/m/nbe/project/aaltonorms/data/'
 norms = ['cslb', 'vinson','aaltoprod', 'aalto85',  'cmu']
@@ -45,9 +46,9 @@ norms_dict = {}
 for i in range(len(norms)):
     norms_dict[norms[i]] = infiles[i]
     
-    
-LUT = pd.read_table(LUT_file, encoding='utf-8', header=0, index_col=0)
-#duplicates = LUT[LUT.duplicated(['FIN_name'], keep=False)]
+LUT = pd.read_excel(LUT_file, sheet_name=0, header=0, index_col=0) 
+#LUT = pd.read_table(LUT_file, encoding='utf-8', header=0, index_col=0)
+
 
 #Make lists of available concepts for each norm set (including overlapping words)
 for norm in norms:
