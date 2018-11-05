@@ -14,12 +14,13 @@ function som_show_category(catnames,catind, vectormat,vocab, sM , hit,n )
 % n:        figure number, optional, default 1
 %
 if nargin < 6
-    error('The function requires minimally input parameters')
+    error('The function requires minimally 6 input parameters')
 end
 
 if nargin < 7
 n = 1;
 end
+
    
 figure(n);
 fig = gcf;
@@ -33,7 +34,6 @@ som_show(sM, 'empty', '');
 y = 0;
 
 for i= 1:length(catnames)
-    
     bmus2 = som_bmus(sM,vectormat(catind{i},:), 'best');
     hits2 = som_hits(sM,vectormat(catind{i},:), 'crisp');
     sM2 = som_label(sM,'add', bmus2, vocab(catind{i}));

@@ -756,10 +756,10 @@ if ~isempty(S.label)
         y = S.coord(i,2) + 0.1*(j - n/2 - 0.5);
         % compute font size
         distance = distances(strcmp(S.vocab, word), i);
-        font_size = 5 + (1 - distance) * S.labelsize;
+        %font_size = 5 + (1 - distance) * S.labelsize;
         font_size = (1+ 1 - distance) * S.labelsize;
         t(i)=text(S.coord(i,1), y, S.coord(i,3), word,...
-            'FontSize', font_size, 'Color',S.labelcolor, ...
+            'FontSize', font_size(1), 'Color',S.labelcolor, ...
             'HorizontalAlignment', 'center');
     end
   end
