@@ -33,7 +33,8 @@ w2v_file = 'raw/w2v_fin/finnish_parsebank_v4_lemma_5+5.bin'
 # Load the look-up table and select the correct column
 LUT_file = 'data/SuperNormList.xlsx'
 LUT = pd.read_excel(dpath +LUT_file, sheet_name=0, header=0, index_col=0)
-data = LUT['w2v_fin'].dropna() 
+data = LUT.dropna(subset=['w2v_fin']) 
+data.to_csv(dpath + 'data/w2v_fin/correspondence.csv', header=True, index=True,  sep='\t', encoding='utf-8')   
 
 # Load the pre-trained Word2Vec model.
 model = gensim.models.KeyedVectors.load_word2vec_format(dpath + w2v_file, binary=True)  

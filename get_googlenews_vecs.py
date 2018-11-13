@@ -38,7 +38,8 @@ model = gensim.models.KeyedVectors.load_word2vec_format(w2v_file, binary=True)
 # Load the look-up table and select the correct column
 LUT_file = 'data/SuperNormList.xlsx'
 LUT = pd.read_excel(dpath +LUT_file, sheet_name=0, header=0, index_col=0)
-data = LUT['w2v_eng'].dropna() 
+data = LUT.dropna(subset=['w2v_eng']) 
+data.to_csv(dpath + 'data/w2v_eng/correspondence.csv', header=True, index=True,  sep='\t', encoding='utf-8')   
 
 # Retrieve the entire list of "words" from the Google Word2Vec model, and write
 # these out to text files so we can peruse them.
