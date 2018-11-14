@@ -48,7 +48,8 @@ vocab = model.vocab.keys()
 not_found = []
 names = []
 vectors = []
-for index, word in data.iteritems():
+items = LUT['w2v_eng'].dropna() 
+for index, word in items.iteritems():
     try:
        #Find w2v vector from the model and append the target word
        vector = np.append(word, model.get_vector(word))
