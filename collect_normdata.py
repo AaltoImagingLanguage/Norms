@@ -1,10 +1,18 @@
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+#!/usr/bin/env python3
+"""
+Created on Wed Feb 13 12:11:37 2019
+
+@author: saranpa1
+"""
+
 """
 Created on Fri Aug 24 13:55:53 2018
 
 @author: kivisas1 & annika
 """
+
+
 import pandas as pd
 import os
 from scipy.io import loadmat
@@ -29,7 +37,7 @@ def write_array2csv(outfile, array):
             
 # LUT = look-up-table
 #LUT_file = '/m/nbe/project/aaltonorms/data/concept_LUT.csv' # FIXME use the xls sheet instead
-LUT_file = '/m/nbe/project/aaltonorms/data/SuperNormList.xlsx'
+LUT_file = '/m/nbe/project/aaltonorms/data/SuperNormList.xls'
 norms_path = '/m/nbe/project/aaltonorms/raw/'
 out_path = '/m/nbe/project/aaltonorms/data/'
 norms = ['cslb', 'vinson','aaltoprod', 'aalto85',  'cmu']
@@ -37,7 +45,7 @@ norms = ['cslb', 'vinson','aaltoprod', 'aalto85',  'cmu']
 # w2vFin: 'Ginter/ginter-300-5+5/AaltoNorm_words/lemma/context_5+5/ginter_lemma_5+5/concepts_vectors.csv',
 
 infiles = ['CSLB/feature_matrix.dat', 
-           'Vinson/VinsonFeature_Matrix.csv',
+           'Vinson/Vinson-BRM-2008/Vinson_feature_matrix_all.csv',
            'AaltoProduction/lemma_sorted20151027_dl_synmerge2.mat',
            'Aalto85questions/Aalto85_sorted20160204.mat',
            'CMU/bagOfFeatures_inStruct.mat']
@@ -86,5 +94,6 @@ for norm in norms:
         
     # Save the remaining variable
     temp_vectors.to_csv(out_path + norm + '/vectors.csv', header=False, index=False,  sep='\t', encoding='utf-8')
+
 
 
