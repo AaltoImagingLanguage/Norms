@@ -15,8 +15,8 @@ import scipy.cluster.hierarchy as hac
 from scipy.cluster.hierarchy import dendrogram, leaves_list
 
 dist = "cosine"
-norms1 = "vinson"
-norms2 = "mcrae"
+norms1 = "w2v_eng"
+norms2 = "vinson"
 normpath = '/m/nbe/project/aaltonorms/data/'
 
 #Directory for the figures to be created
@@ -38,11 +38,6 @@ norms1_vecs = pd.read_csv(normpath + norms1 + '/' + 'vectors.csv', encoding='utf
 norms2_vecs = pd.read_csv(normpath + norms2 + '/' + 'vectors.csv', encoding='utf-8', 
                          delimiter = '\t', header=None, index_col=None)
 
-norms1_corr = pd.read_csv(normpath + norms1 + '/' + 'correspondence.csv', encoding='utf-8', 
-                         delimiter = '\t', header=0, index_col=None)
-
-norms2_corr = pd.read_csv(normpath + norms2 + '/' + 'correspondence.csv', encoding='utf-8', 
-                         delimiter = '\t', header=0, index_col=None)
 
 print("Norms compared: " + norms1 + " " + norms2)
 

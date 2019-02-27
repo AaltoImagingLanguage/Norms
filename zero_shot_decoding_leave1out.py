@@ -10,10 +10,11 @@ Created on Wed Aug  8 10:34:27 2018
 Learn a mapping from one norm dataset to another and evaluate its fit.
 
 Authors: Marijn van Vliet <w.m.vanvliet@gmail.com>
+Sasa Kivisaari
 """
 import os.path
 import argparse
-import pandas
+import pandas as pd
 import numpy as np
 from matplotlib import pyplot as plt
 from sklearn.linear_model import RidgeCV, LinearRegression
@@ -22,17 +23,42 @@ from scipy.spatial import distance
 #from scipy.io import loadmat
 
 parser = argparse.ArgumentParser(description='Learn a mapping from one norm dataset to another')
-parser.add_argument('norm1', type=str, help='Filename for norm data set 1 (must end in .csv)')
-parser.add_argument('norm2', type=str, help='Filename for norm data set 2 (must end in .csv)')
+parser.add_argument('norm1', type=str, help='Norm data set 1')
+parser.add_argument('norm2', type=str, help='Norm data set 2')
 parser.add_argument('--reg', action='store_true', help='Whether to use regularization')
 args = parser.parse_args()
 
 print('Learning mapping from', os.path.basename(args.norm1), 'to', os.path.basename(args.norm2))
-#norm1 = loadmat(args.norm1)['newVectors']
-#norm2 = loadmat(args.norm2)['newVectors']
+norm1 = args.norm1
+norm2 = args.norm2
+normpath = '/m/nbe/project/aaltonorms/data/'
 
-norm1 = pandas.read_table(args.norm1, encoding='utf-8', header=None,index_col=0).values
-norm2 = pandas.read_table(args.norm2, encoding='utf-8', header=None,index_col=0).values
+
+#Get norm data 
+LUT = pd.read_excel('/m/nbe/project/aaltonorms/data/SuperNormList.xls', encoding='utf-8', 
+                       header=0, index_col=0)
+norms1_vocab = pd.read_csv(normpath + norm1 + '/' + 'vocab.csv', encoding='utf-8', 
+                         delimiter = '\t', header=None, index_col=0)
+
+norms2_vocab = pd.read_csv(normpath + norm2 + '/' + 'vocab.csv', encoding='utf-8', 
+                         delimiter = '\t', header=None, index_col=0)
+
+norms1_vecs = pd.read_csv(normpath + norm1 + '/' + 'vectors.csv', encoding='utf-8', delimiter = '\t', 
+                         header=None, index_col=None)
+
+norms2_vecs = pd.read_csv(normpath + norm2 + '/' + 'vectors.csv', encoding='utf-8', 
+                         delimiter = '\t', header=None, index_col=None)
+
+#Choose words that are shared in the two norms
+picks = LUT[LUT[norm1].notnull() & LUT[norm2].notnull()]
+picks = picks.sort_values(by=["category"])
+
+#Set word label as index
+norms1_vecs.set_index(norms1_vocab.index, inplace=True)
+norms2_vecs.set_index(norms2_vocab.index, inplace=True)
+
+norm1 = norms1_vecs.loc[picks[norm1]].values
+norm2 = norms2_vecs.loc[picks[norm2]].values
 
 num_words = len(norm1)
 assert len(norm2) == num_words
