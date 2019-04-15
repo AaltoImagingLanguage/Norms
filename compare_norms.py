@@ -51,6 +51,7 @@ norm1_vecs = pd.read_csv(normpath + norm1 + '/' + 'vectors.csv', encoding='utf-8
 norm2_vecs = pd.read_csv(normpath + norm2 + '/' + 'vectors.csv', encoding='utf-8', 
                          delimiter = '\t', header=None, index_col=None)
 
+#picks = LUT[LUT["aaltonorms"].notnull() & LUT["clsb"].notnull()  & LUT["aaltonorms"].notnull()  & LUT["aaltonorms"].notnull()]
 picks = LUT[LUT[norm1].notnull() & LUT[norm2].notnull()]
 picks = picks.sort_values(by=["category"])
 
