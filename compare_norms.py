@@ -33,25 +33,31 @@ norm1 = args.norm1
 norm2 = args.norm2
 
 #Get data from the big excel file
-LUT = pd.read_excel('/m/nbe/project/aaltonorms/data/SuperNormList.xls', encoding='utf-8', 
-                       header=0, index_col=0)
+LUT = pd.read_excel('/m/nbe/project/aaltonorms/data/SuperNormList.xls', 
+                    encoding='utf-8', 
+                    header=0, index_col=0)
 
-#Exclude homonyms
-LUT = LUT[LUT['homonym_all']==0]
+#Exclude homonyms, verbs and abstract words
+LUT = LUT[LUT['action_words']==0]
+LUT = LUT[LUT['category']!="abstract_mid"]
+LUT = LUT[LUT['category']!="abstract_high"]
 
-norm1_vocab = pd.read_csv(normpath + norm1 + '/' + 'vocab.csv', encoding='utf-8', 
+norm1_vocab = pd.read_csv(normpath + norm1 + '/' + 'vocab.csv', 
+                          encoding='utf-8', 
                          delimiter = '\t', header=None, index_col=0)
 
-norm2_vocab = pd.read_csv(normpath + norm2 + '/' + 'vocab.csv', encoding='utf-8', 
+norm2_vocab = pd.read_csv(normpath + norm2 + '/' + 'vocab.csv', 
+                          encoding='utf-8', 
                          delimiter = '\t', header=None, index_col=0)
 
-norm1_vecs = pd.read_csv(normpath + norm1 + '/' + 'vectors.csv', encoding='utf-8', delimiter = '\t', 
+norm1_vecs = pd.read_csv(normpath + norm1 + '/' + 'vectors.csv', 
+                         encoding='utf-8', delimiter = '\t', 
                          header=None, index_col=None)
 
-norm2_vecs = pd.read_csv(normpath + norm2 + '/' + 'vectors.csv', encoding='utf-8', 
+norm2_vecs = pd.read_csv(normpath + norm2 + '/' + 'vectors.csv', 
+                         encoding='utf-8', 
                          delimiter = '\t', header=None, index_col=None)
 
-#picks = LUT[LUT["aaltonorms"].notnull() & LUT["clsb"].notnull()  & LUT["aaltonorms"].notnull()  & LUT["aaltonorms"].notnull()]
 picks = LUT[LUT[norm1].notnull() & LUT[norm2].notnull()]
 picks = picks.sort_values(by=["category"])
 
@@ -87,7 +93,8 @@ def remove_ticks(ax):
 
 def make_category_bar(cats):
     plt.figure(figsize=(1,3))    
-    ax = plt.imshow(cats, cmap='Paired', interpolation='nearest', extent=[0,5,0,1], aspect=100)
+    ax = plt.imshow(cats, cmap='Paired', interpolation='nearest', 
+                    extent=[0,5,0,1], aspect=100)
     ax = remove_ticks(ax)
     return ax
     
@@ -108,7 +115,7 @@ def compare_norms(A,B, label_A, label_B,  cats=None):
    
     print(label_A + " vs. " + label_B + "  rho is: " + 
         str(round(rho,2)) + ", pvalue = " + str(round(pval,5)))
-    plt.savefig(figure_dir + label_A + "_" + label_B + "_production_norm_comparison.pdf", 
+    plt.savefig(figure_dir + label_A + "_" + label_B + "_norm_comparison.pdf", 
                 format='pdf', dpi=1000, bbox_inches='tight')
 
         
@@ -129,15 +136,17 @@ def hierarchical_clustering(norms,labels,font):
         leaf_font_size= font,  # font size for the x axis labels
     )
     #
-    plt.show()
+    #plt.show()
     index = leaves_list(Z)
-    return index,Z
+    return index, Z
 
 
-norm1_index,norm1_Z = hierarchical_clustering(norm1_vecs.values, picks['eng_name'].tolist(),'8.')
+norm1_index,norm1_Z = hierarchical_clustering(norm1_vecs.values, 
+                                              picks['eng_name'].tolist(),'8.')
 plt.savefig(figure_dir + norm1 + "_hierarchical_clustering.pdf", 
             format='pdf', dpi=1000, bbox_inches='tight')
-norm2_index,norm2_Z = hierarchical_clustering(norm2_vecs.values, picks['eng_name'].tolist(),'8.')
+norm2_index,norm2_Z = hierarchical_clustering(norm2_vecs.values, 
+                                              picks['eng_name'].tolist(),'8.')
 plt.savefig(figure_dir + norm2 + "_hierarchical_clustering.pdf", 
             format='pdf', dpi=1000, bbox_inches='tight')
 
@@ -157,5 +166,6 @@ def get_different_clusters(Z):
                   distance_sort='ascending')
     plt.close()
     from itertools import groupby
-    n = [list(group) for key, group in groupby(D2['ivl'],lambda x: x in D1['ivl'])]
+    n = [list(group) for key, group in groupby(D2['ivl'],
+         lambda x: x in D1['ivl'])]
     return n

@@ -29,36 +29,47 @@ parser.add_argument('--reg', action='store_true', help='Whether to use regulariz
 args = parser.parse_args()
 
 print('Learning mapping from', os.path.basename(args.norm1), 'to', os.path.basename(args.norm2))
-norm1 = args.norm1
-norm2 = args.norm2
+
 normpath = '/m/nbe/project/aaltonorms/data/'
 
 
-#Get norm data 
-LUT = pd.read_excel('/m/nbe/project/aaltonorms/data/SuperNormList.xls', encoding='utf-8', 
-                       header=0, index_col=0)
-norms1_vocab = pd.read_csv(normpath + norm1 + '/' + 'vocab.csv', encoding='utf-8', 
+#Get data from the big excel file
+LUT = pd.read_excel('/m/nbe/project/aaltonorms/data/SuperNormList.xls', 
+                    encoding='utf-8', 
+                    header=0, index_col=0)
+
+#Exclude homonyms
+LUT = LUT[LUT['homonym_verb']==0]
+LUT = LUT[LUT['category']!="abstract"]
+
+norm1_vocab = pd.read_csv(normpath + args.norm1 + '/' + 'vocab.csv', 
+                          encoding='utf-8', 
                          delimiter = '\t', header=None, index_col=0)
 
-norms2_vocab = pd.read_csv(normpath + norm2 + '/' + 'vocab.csv', encoding='utf-8', 
+norm2_vocab = pd.read_csv(normpath + args.norm2 + '/' + 'vocab.csv', 
+                          encoding='utf-8', 
                          delimiter = '\t', header=None, index_col=0)
 
-norms1_vecs = pd.read_csv(normpath + norm1 + '/' + 'vectors.csv', encoding='utf-8', delimiter = '\t', 
+norm1_vecs = pd.read_csv(normpath + args.norm1 + '/' + 'vectors.csv', 
+                         encoding='utf-8', delimiter = '\t', 
                          header=None, index_col=None)
 
-norms2_vecs = pd.read_csv(normpath + norm2 + '/' + 'vectors.csv', encoding='utf-8', 
+norm2_vecs = pd.read_csv(normpath + args.norm2 + '/' + 'vectors.csv', 
+                         encoding='utf-8', 
                          delimiter = '\t', header=None, index_col=None)
 
-#Choose words that are shared in the two norms
-picks = LUT[LUT[norm1].notnull() & LUT[norm2].notnull()]
+picks = LUT[LUT[args.norm1].notnull() & LUT[args.norm2].notnull()]
 picks = picks.sort_values(by=["category"])
 
 #Set word label as index
-norms1_vecs.set_index(norms1_vocab.index, inplace=True)
-norms2_vecs.set_index(norms2_vocab.index, inplace=True)
+norm1_vecs.set_index(norm1_vocab.index, inplace=True)
+norm2_vecs.set_index(norm2_vocab.index, inplace=True)
 
-norm1 = norms1_vecs.loc[picks[norm1]].values
-norm2 = norms2_vecs.loc[picks[norm2]].values
+norm1_vecs = norm1_vecs.loc[picks[args.norm1]]
+norm2_vecs = norm2_vecs.loc[picks[args.norm2]]
+
+norm1 = norm1_vecs.values
+norm2 = norm2_vecs.values
 
 num_words = len(norm1)
 assert len(norm2) == num_words
