@@ -2,13 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Wed Aug  8 10:34:27 2018
-
-@author: kivisas1
-"""
-
-"""
 Learn a mapping from one norm dataset to another and evaluate its fit.
-
 Authors: Marijn van Vliet <w.m.vanvliet@gmail.com>
 Sasa Kivisaari
 """
@@ -20,27 +14,38 @@ from matplotlib import pyplot as plt
 from sklearn.linear_model import RidgeCV, LinearRegression
 from sklearn.model_selection import LeaveOneOut
 from scipy.spatial import distance
-#from scipy.io import loadmat
+from scipy.io import savemat
 
-parser = argparse.ArgumentParser(description='Learn a mapping from one norm dataset to another')
+
+parser = argparse.ArgumentParser(description='Learn a mapping from one norm \
+                                 dataset to another')
 parser.add_argument('norm1', type=str, help='Norm data set 1')
 parser.add_argument('norm2', type=str, help='Norm data set 2')
-parser.add_argument('--reg', action='store_true', help='Whether to use regularization')
+#parser.add_argument('--output', type=str, help='Output filename')
+parser.add_argument('--reg', action='store_true', help='Whether to use \
+                    regularization')
 args = parser.parse_args()
 
-print('Learning mapping from', os.path.basename(args.norm1), 'to', os.path.basename(args.norm2))
+print('Learning mapping from', os.path.basename(args.norm1), 'to', 
+      os.path.basename(args.norm2))
 
+outpath = '/m/nbe/project/aaltonorms/results/zero_shot/'
 normpath = '/m/nbe/project/aaltonorms/data/'
+norms = ["aaltoprod", "cslb", "vinson", "w2v_eng", "w2v_fin"]
 
-
+if args.reg == None:
+    output = outpath + args.norm1 + "_" + args.norm2 + "_results.mat"
+else:
+    output = outpath + args.norm1 + "_" + args.norm2 + "_reg_results.mat"
 #Get data from the big excel file
 LUT = pd.read_excel('/m/nbe/project/aaltonorms/data/SuperNormList.xls', 
                     encoding='utf-8', 
                     header=0, index_col=0)
 
-#Exclude homonyms
-LUT = LUT[LUT['homonym_verb']==0]
-LUT = LUT[LUT['category']!="abstract"]
+#Exclude homonyms, verbs and abstract words
+LUT = LUT[LUT['action_words']==0]
+LUT = LUT[LUT['category']!="abstract_mid"]
+LUT = LUT[LUT['category']!="abstract_high"]
 
 norm1_vocab = pd.read_csv(normpath + args.norm1 + '/' + 'vocab.csv', 
                           encoding='utf-8', 
@@ -58,7 +63,11 @@ norm2_vecs = pd.read_csv(normpath + args.norm2 + '/' + 'vectors.csv',
                          encoding='utf-8', 
                          delimiter = '\t', header=None, index_col=None)
 
-picks = LUT[LUT[args.norm1].notnull() & LUT[args.norm2].notnull()]
+picks = LUT[LUT[norms[0]].notnull() & LUT[norms[1]].notnull() &
+            LUT[norms[2]].notnull() & LUT[norms[3]].notnull() & 
+            LUT[norms[4]].notnull()]
+
+print("Number of words: " + str(len(picks)))
 picks = picks.sort_values(by=["category"])
 
 #Set word label as index
@@ -98,6 +107,14 @@ print('Accuracy:', accuracy * 100, '%')
 # Plot the confusion matrix
 confusion_matrix = np.zeros_like(dist)
 confusion_matrix[np.arange(num_words), dist.argmin(axis=1)] = 1
+
+results = {
+    'accuracy': accuracy,
+    'confusion_matrix': confusion_matrix
+}
+
+savemat(output, results)
+
 
 fig = plt.figure(figsize=(8, 8))
 plt.imshow(confusion_matrix, cmap='gray_r', interpolation='nearest')
