@@ -21,7 +21,6 @@ parser = argparse.ArgumentParser(description='Learn a mapping from one norm \
                                  dataset to another')
 parser.add_argument('norm1', type=str, help='Norm data set 1')
 parser.add_argument('norm2', type=str, help='Norm data set 2')
-#parser.add_argument('--output', type=str, help='Output filename')
 parser.add_argument('--reg', action='store_true', help='Whether to use \
                     regularization')
 args = parser.parse_args()
@@ -29,16 +28,23 @@ args = parser.parse_args()
 print('Learning mapping from', os.path.basename(args.norm1), 'to', 
       os.path.basename(args.norm2))
 
-outpath = '/m/nbe/project/aaltonorms/results/zero_shot/'
-normpath = '/m/nbe/project/aaltonorms/data/'
+outpath = '/m/nbe/scratch/aaltonorms/results/zero_shot/'
+normpath = '/m/nbe/scratch/aaltonorms/data/'
 norms = ["aaltoprod", "cslb", "vinson", "w2v_eng", "w2v_fin"]
+analysis = args.norm1 + "_" + args.norm2 
+	
+os.mkdir(outpath + analysis)
 
+
+
+#Determine output filename
 if args.reg == None:
-    output = outpath + args.norm1 + "_" + args.norm2 + "_results.mat"
+    output = outpath + analysis + "/leave1out_results.mat"
 else:
-    output = outpath + args.norm1 + "_" + args.norm2 + "_reg_results.mat"
+    output = outpath + analysis + "/leave1out_reg_results.mat"
+    
 #Get data from the big excel file
-LUT = pd.read_excel('/m/nbe/project/aaltonorms/data/SuperNormList.xls', 
+LUT = pd.read_excel('/m/nbe/scratch/aaltonorms/data/SuperNormList.xls', 
                     encoding='utf-8', 
                     header=0, index_col=0)
 
@@ -109,15 +115,19 @@ confusion_matrix = np.zeros_like(dist)
 confusion_matrix[np.arange(num_words), dist.argmin(axis=1)] = 1
 
 results = {
-    'accuracy': accuracy,
+    'overall_accuracy': accuracy,
+    'distance_matrix': dist,
     'confusion_matrix': confusion_matrix
 }
 
 savemat(output, results)
+print("Saved results to: " + output)
 
 
+#Plot results
 fig = plt.figure(figsize=(8, 8))
 plt.imshow(confusion_matrix, cmap='gray_r', interpolation='nearest')
 plt.xlabel('Which word I thought it was')
 plt.ylabel('Which word it should have been')
 plt.title('Confusion matrix')
+fig.save(outpath + norm1 + "_" + norm2 + "_confusion_matrix.png" )

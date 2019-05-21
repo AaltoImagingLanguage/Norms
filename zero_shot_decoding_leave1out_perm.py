@@ -114,7 +114,8 @@ confusion_matrix = np.zeros_like(dist)
 confusion_matrix[np.arange(num_words), dist.argmin(axis=1)] = 1
 
 results = {
-    'accuracy': accuracy,
+    'overall_accuracy': accuracy,
+    'distance_matrix': dist,
     'iteration': args.iteration,
     'confusion_matrix': confusion_matrix
 }
