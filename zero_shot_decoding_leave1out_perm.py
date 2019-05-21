@@ -10,7 +10,6 @@ import os.path
 import argparse
 import pandas as pd
 import numpy as np
-from matplotlib import pyplot as plt
 from sklearn.linear_model import RidgeCV, LinearRegression
 from sklearn.model_selection import LeaveOneOut
 from scipy.spatial import distance
@@ -32,16 +31,13 @@ args = parser.parse_args()
 print('Learning mapping from', os.path.basename(args.norm1), 'to', 
       os.path.basename(args.norm2))
 
-outpath = '/m/nbe/project/aaltonorms/results/zero_shot/'
-normpath = '/m/nbe/project/aaltonorms/data/'
+#outpath = '/m/nbe/scratch/aaltonorms/results/zero_shot/perm'
+normpath = '/m/nbe/scratch/aaltonorms/data/'
 norms = ["aaltoprod", "cslb", "vinson", "w2v_eng", "w2v_fin"]
 
-if args.reg == None:
-    output = outpath + args.norm1 + "_" + args.norm2 + "_results.mat"
-else:
-    output = outpath + args.norm1 + "_" + args.norm2 + "_reg_results.mat"
+
 #Get data from the big excel file
-LUT = pd.read_excel('/m/nbe/project/aaltonorms/data/SuperNormList.xls', 
+LUT = pd.read_excel('/m/nbe/scratch/aaltonorms/data/SuperNormList.xls', 
                     encoding='utf-8', 
                     header=0, index_col=0)
 
