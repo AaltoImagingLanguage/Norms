@@ -9,6 +9,7 @@ Sasa Kivisaari
 import os.path
 import argparse
 import pandas as pd
+from matplotlib import pyplot as plt
 import numpy as np
 from sklearn.linear_model import RidgeCV, LinearRegression
 from sklearn.model_selection import LeaveOneOut
@@ -74,16 +75,13 @@ norm1_vecs.set_index(norm1_vocab.index, inplace=True)
 norm2_vecs.set_index(norm2_vocab.index, inplace=True)
 
 norm1_vecs = norm1_vecs.loc[picks[args.norm1]]
-
 norm2_vecs = norm2_vecs.loc[picks[args.norm2]]
 
 norm1 = norm1_vecs.values
-
-
-
 norm2 = norm2_vecs.values
-#Form permutation test, shuffle order of norm1
-np.random.shuffle(norm1)
+
+#Form permutation test, shuffle order of norm2
+#np.random.shuffle(norm2)
 
 num_words = len(norm1)
 assert len(norm2) == num_words
@@ -94,18 +92,18 @@ norm2_pred = np.zeros_like(norm2)
 if args.reg:
     print('Using regularization')
     # Regularized Linear Regression
-    mapping = RidgeCV(alphas=np.logspace(-5, 5, 100))
+    mapping = RidgeCV(normalize=False, alphas=np.logspace(-5, 5, 100))
 else:
     print('Not using regularization')
     # Plain Linear Regression
-    mapping = LinearRegression()
+    mapping = LinearRegression(normalize=False)
 
 for train, test in LeaveOneOut().split(norm1, norm2):
     mapping.fit(norm1[train], norm2[train])
     norm2_pred[test] = mapping.predict(norm1[test])
 
 # See how well norm2_pred fits to norm2, in terms of accuracy
-dist = distance.cdist(norm2_pred, norm2, metric='euclidean')
+dist = distance.cdist(norm2_pred, norm2, metric='cosine')
 accuracy = np.mean(dist.argmin(axis=1) == np.arange(num_words))
 print('Accuracy:', accuracy * 100, '%')
 
@@ -122,3 +120,10 @@ results = {
 
 savemat(args.output, results)
 
+#Plot results
+fig = plt.figure(figsize=(8, 8))
+plt.imshow(confusion_matrix, cmap='gray_r', interpolation='nearest')
+plt.xlabel('Which word I thought it was')
+plt.ylabel('Which word it should have been')
+plt.title('Confusion matrix')
+#fig.save(norm1 + "_" + norm2 + "_confusion_matrix.png" )

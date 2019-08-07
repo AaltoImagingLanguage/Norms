@@ -46,7 +46,7 @@ norms = ['cslb', 'vinson','aaltoprod', 'aalto85',  'cmu']
 
 infiles = ['CSLB/feature_matrix.dat', 
            'Vinson/Vinson-BRM-2008/Vinson_feature_matrix_all.csv',
-           'AaltoProduction/lemma_sorted20151027_dl_synmerge2.mat',
+           'AaltoProduction/concept_feature_matrix_pf0.1.csv',
            'Aalto85questions/Aalto85_sorted20160204.mat',
            'CMU/bagOfFeatures_inStruct.mat']
 
@@ -55,7 +55,7 @@ for i in range(len(norms)):
     norms_dict[norms[i]] = infiles[i]
     
 LUT = pd.read_excel(LUT_file, sheet_name=0, header=0, index_col=0) 
-#LUT = pd.read_table(LUT_file, encoding='utf-8', header=0, index_col=0)
+
 
 
 #Make lists of available concepts for each norm set (including overlapping words)
@@ -73,27 +73,35 @@ for norm in norms:
         write_array2csv(out_path + norm + '/features.csv', featurearray)
         wordarray = np.core.defchararray.lower(wordarray)
         write_array2csv(out_path + norm + '/vocab.csv', wordarray)
-    else:             
-        temp = LUT[norm].dropna()     # selct the words in the norm set
-        if  norms_dict.get(norm)[-3:]=='csv':  
-            delim = ','
-        else: # data is dat
-            delim = None
+        
+    else:   
+        if  norm == 'vinson':             
+            orig = pd.read_csv(norms_path + norms_dict.get(norm), header=0, 
+                                      index_col=0, delimiter=',')
+            orig = orig.transpose()
             
-        temp_orig = pd.read_table(norms_path + norms_dict.get(norm), encoding='latin1', header=0, index_col=0, delimiter=delim)    
-        
-        if  norm == 'vinson': 
-            temp_orig = temp_orig.transpose()        
+        elif  norm == 'cslb':  
+            orig = pd.read_table(norms_path + norms_dict.get(norm), header=0, 
+                              index_col=0)
+        elif  norm == 'aaltoprod':  
+            orig = pd.read_csv(norms_path + norms_dict.get(norm), header=0, 
+                              index_col=0, sep='\t')  
+            #Remove one instance of metri, since this is a duplicate + "jolla",
+            #which was ambiguous
+            orig = orig.loc[~orig.index.duplicated(keep='first')]
+            orig = orig.drop("jolla")
+  
+    
         #Getvectors
-        temp_vectors = temp_orig.loc[temp] 
+        normwords = LUT[norm].dropna() 
+        vectors = orig.loc[normwords] 
         # Get features 
-        #FIXME w2v doesn't have feature labels so this step needs to be optional
-        temp_features = pd.DataFrame(temp_orig.columns.values)        
-        temp_features.to_csv(out_path + norm + '/features.csv', header=False, index=False, sep='\t', encoding='utf-8')
-        temp.to_csv(out_path + norm + '/vocab.csv', header=False, index=False,  sep='\t', encoding='utf-8')
+        features = pd.DataFrame(orig.columns.values)        
+        features.to_csv(out_path + norm + '/features.csv', header=False, index=False, sep='\t', encoding='utf-8')
+        normwords.to_csv(out_path + norm + '/vocab.csv', header=False, index=False,  sep='\t', encoding='utf-8')
         
-    # Save the remaining variable
-    temp_vectors.to_csv(out_path + norm + '/vectors.csv', header=False, index=False,  sep='\t', encoding='utf-8')
+        # Save the remaining variable
+        vectors.to_csv(out_path + norm + '/vectors.csv', header=False, index=False,  sep='\t', encoding='utf-8')
 
 
 
