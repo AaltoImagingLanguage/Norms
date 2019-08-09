@@ -1,7 +1,6 @@
 import argparse
 
 from scipy.io import loadmat
-from scipy.misc import comb
 import pandas as pd
 import numpy as np
 
@@ -26,10 +25,9 @@ cateind = stimuli['category'].values
 
 
 
-
+results = []
 for i, fname in enumerate(args.input_file, 1):
-    m = loadmat(fname, variable_names = ['accuracy', 'iteration', 'distance_matrix',
-                                         'confusion_matrix'])
+    m = loadmat(fname)
     num_words = len(cateind)
     dist = m['distance_matrix']
     #Checks which column index has the smallest distance to predicted and whether
@@ -37,21 +35,32 @@ for i, fname in enumerate(args.input_file, 1):
     item_accuracy = np.mean(dist.argmin(axis=1) == np.arange(num_words))
     
     within_acc_list = []
-    for i, test in enumerate(dist.argmin(axis=1)):
+    for j, test in enumerate(dist.argmin(axis=1)):
         predicted_category = cateind[test]
-        true_category = cateind[i]
+        true_category = cateind[j]
+        
         if predicted_category == true_category:
             within_acc_list.append(1)
         else:
             within_acc_list.append(0)
-    within_accuracy =  np.mean(within_acc_list)
+            within_accuracy =  np.mean(within_acc_list)
 
+    if 'iteration' in m:
+        results.append([m['iteration'][0][0], item_accuracy, within_accuracy])
+    else:
+        results.append([item_accuracy, within_accuracy])
+    
+    
+# Collect all the results in one big table
+if 'iteration' in m:
+    results = pd.DataFrame(results, columns=["iteration", "item-level", "category-level"])
+else:
+    results = pd.DataFrame(results, columns=["item-level", "category-level"])
+# Set the proper index, based on whether we are analyzing real data or random
+# permutations.
+#if 'iteration' in results:
+#    results = results.set_index(['iteration', 'X', 'Y'])
 
-results = {
-        "correct_item" : [item_accuracy], 
-        "correct_category" : [within_accuracy]
-        }
-results = pd.DataFrame.from_dict(results)
 results.to_csv(args.output)
 
 if args.verbose:

@@ -33,7 +33,7 @@ normpath = '/m/nbe/scratch/aaltonorms/data/'
 norms = ["aaltoprod", "cslb", "vinson", "w2v_eng", "w2v_fin"]
 analysis = args.norm1 + "_" + args.norm2 
 	
-os.mkdir(outpath + analysis)
+#os.mkdir(outpath + analysis)
 
 
 
@@ -125,9 +125,9 @@ print("Saved results to: " + output)
 
 
 #Plot results
-fig = plt.figure(figsize=(8, 8))
-plt.imshow(confusion_matrix, cmap='gray_r', interpolation='nearest')
-plt.xlabel('Which word I thought it was')
-plt.ylabel('Which word it should have been')
-plt.title('Confusion matrix')
-fig.save(outpath + norm1 + "_" + norm2 + "_confusion_matrix.png" )
+#fig = plt.figure(figsize=(8, 8))
+#plt.imshow(confusion_matrix, cmap='gray_r', interpolation='nearest')
+#plt.xlabel('Which word I thought it was')
+#plt.ylabel('Which word it should have been')
+#plt.title('Confusion matrix')
+#fig.save(outpath + norm1 + "_" + norm2 + "_confusion_matrix.png" )

@@ -13,12 +13,12 @@ from matplotlib import pyplot as plt
 import numpy as np
 from scipy.stats import spearmanr
 import scipy.cluster.hierarchy as hac
-from scipy.cluster.hierarchy import dendrogram, leaves_list, linkage
+from scipy.cluster.hierarchy import dendrogram, leaves_list
 import argparse
 import os
 
-import pylab
-import scipy.cluster.hierarchy as sch
+#import pylab
+#import scipy.cluster.hierarchy as sch
 #from sklearn.cluster import  AgglomerativeClustering
 
 
@@ -65,28 +65,28 @@ norm1_vocab = pd.read_csv(normpath + norm1 + '/' + 'vocab.csv', encoding='utf-8'
 norm2_vocab = pd.read_csv(normpath + norm2 + '/' + 'vocab.csv', encoding='utf-8', 
                          delimiter = '\t', header=None, index_col=0)
 
-norm3_vocab = pd.read_csv(normpath + norm2 + '/' + 'vocab.csv', encoding='utf-8', 
+norm3_vocab = pd.read_csv(normpath + norm3 + '/' + 'vocab.csv', encoding='utf-8', 
                          delimiter = '\t', header=None, index_col=0)
 
-norm4_vocab = pd.read_csv(normpath + norm2 + '/' + 'vocab.csv', encoding='utf-8', 
+norm4_vocab = pd.read_csv(normpath + norm4 + '/' + 'vocab.csv', encoding='utf-8', 
                          delimiter = '\t', header=None, index_col=0)
 
-norm5_vocab = pd.read_csv(normpath + norm2 + '/' + 'vocab.csv', encoding='utf-8', 
+norm5_vocab = pd.read_csv(normpath + norm5 + '/' + 'vocab.csv', encoding='utf-8', 
                          delimiter = '\t', header=None, index_col=0)
 
-norm1_vecs = pd.read_csv(normpath + norm1 + '/' + 'vectors.csv', encoding='utf-8', delimiter = '\t', 
-                         header=None, index_col=None)
+norm1_vecs = pd.read_csv(normpath + norm1 + '/' + 'vectors.csv', encoding='utf-8', 
+                         delimiter = '\t', header=None, index_col=None)
 
 norm2_vecs = pd.read_csv(normpath + norm2 + '/' + 'vectors.csv', encoding='utf-8', 
                          delimiter = '\t', header=None, index_col=None)
 
-norm3_vecs = pd.read_csv(normpath + norm2 + '/' + 'vectors.csv', encoding='utf-8', 
+norm3_vecs = pd.read_csv(normpath + norm3 + '/' + 'vectors.csv', encoding='utf-8', 
                          delimiter = '\t', header=None, index_col=None)
 
-norm4_vecs = pd.read_csv(normpath + norm2 + '/' + 'vectors.csv', encoding='utf-8', 
+norm4_vecs = pd.read_csv(normpath + norm4 + '/' + 'vectors.csv', encoding='utf-8', 
                          delimiter = '\t', header=None, index_col=None)
 
-norm5_vecs = pd.read_csv(normpath + norm2 + '/' + 'vectors.csv', encoding='utf-8', 
+norm5_vecs = pd.read_csv(normpath + norm5 + '/' + 'vectors.csv', encoding='utf-8', 
                          delimiter = '\t', header=None, index_col=None)
 
 
@@ -96,9 +96,9 @@ picks = picks.sort_values(by=["category"])
 #Set word label as index
 norm1_vecs.set_index(norm1_vocab.index, inplace=True)
 norm2_vecs.set_index(norm2_vocab.index, inplace=True)
-norm3_vecs.set_index(norm2_vocab.index, inplace=True)
-norm4_vecs.set_index(norm2_vocab.index, inplace=True)
-norm5_vecs.set_index(norm2_vocab.index, inplace=True)
+norm3_vecs.set_index(norm3_vocab.index, inplace=True)
+norm4_vecs.set_index(norm4_vocab.index, inplace=True)
+norm5_vecs.set_index(norm5_vocab.index, inplace=True)
 
 norm1_vecs = norm1_vecs.loc[picks[norm1]]
 norm2_vecs = norm2_vecs.loc[picks[norm2]]

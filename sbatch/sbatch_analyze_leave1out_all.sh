@@ -22,23 +22,24 @@ module load anaconda3
 # Run the analyses
 
 
-srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}aaltoprod_cslb/leave1out_reg_results.mat -o ${OUTPUT_PATH}aaltoprod_cslb/results.csv -v
-srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}aaltoprod_vinson/leave1out_reg_results.mat -o ${OUTPUT_PATH}aaltoprod_vinson/results.csv -v
-srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}aaltoprod_w2v_eng/leave1out_reg_results.mat -o ${OUTPUT_PATH}aaltoprod_w2v_eng/results.csv -v
-srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}aaltoprod_w2v_fin/leave1out_reg_results.mat -o ${OUTPUT_PATH}aaltoprod_w2v_fin/results.csv -v
-srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}cslb_aaltoprod/leave1out_reg_results.mat -o ${OUTPUT_PATH}cslb_aaltoprod/results.csv -v
-srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}cslb_vinson/leave1out_reg_results.mat -o ${OUTPUT_PATH}cslb_vinson/results.csv -v
-srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}cslb_w2v_eng/leave1out_reg_results.mat -o ${OUTPUT_PATH}cslb_w2v_eng/results.csv -v
-srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}cslb_w2v_fin/leave1out_reg_results.mat -o ${OUTPUT_PATH}cslb_w2v_fin/results.csv -v
-srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}vinson_aaltoprod/leave1out_reg_results.mat -o ${OUTPUT_PATH}vinson_aaltoprod/results.csv -v
-srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}vinson_cslb/leave1out_reg_results.mat -o ${OUTPUT_PATH}vinson_cslb/results.csv -v
-srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}vinson_w2v_eng/leave1out_reg_results.mat -o ${OUTPUT_PATH}vinson_w2v_eng/results.csv -v
-srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}vinson_w2v_fin/leave1out_reg_results.mat -o ${OUTPUT_PATH}vinson_w2v_fin/results.csv -v
-srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}w2v_eng_aaltoprod/leave1out_reg_results.mat -o ${OUTPUT_PATH}w2v_eng_aaltoprod/results.csv -v
-srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}w2v_eng_cslb/leave1out_reg_results.mat -o ${OUTPUT_PATH}w2v_eng_cslb/results.csv -v
-srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}w2v_eng_vinson/leave1out_reg_results.mat -o ${OUTPUT_PATH}w2v_eng_vinson/results.csv -v
-srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}w2v_eng_w2v_fin/leave1out_reg_results.mat -o ${OUTPUT_PATH}w2v_eng_w2v_fin/results.csv -v
-srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}w2v_fin_aaltoprod/leave1out_reg_results.mat -o ${OUTPUT_PATH}w2v_fin_aaltoprod/results.csv -v
-srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}w2v_fin_cslb/leave1out_reg_results.mat -o ${OUTPUT_PATH}w2v_fin_cslb/results.csv -v
-srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}w2v_fin_vinson/leave1out_reg_results.mat -o ${OUTPUT_PATH}w2v_fin_vinson/results.csv -v
-srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}w2v_fin_w2v_eng/leave1out_reg_results.mat -o ${OUTPUT_PATH}w2v_fin_w2v_eng/results.csv -v
+#srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}aaltoprod_cslb/leave1out_reg_results.mat -o ${OUTPUT_PATH}aaltoprod_cslb/reg_results.csv -v
+#srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}aaltoprod_vinson/leave1out_reg_results.mat -o ${OUTPUT_PATH}aaltoprod_vinson/reg_results.csv -v
+#srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}aaltoprod_w2v_eng/leave1out_reg_results.mat -o ${OUTPUT_PATH}aaltoprod_w2v_eng/reg_results.csv -v
+#srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}aaltoprod_w2v_fin/leave1out_reg_results.mat -o ${OUTPUT_PATH}aaltoprod_w2v_fin/reg_results.csv -v
+#srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}cslb_aaltoprod/leave1out_reg_results.mat -o ${OUTPUT_PATH}cslb_aaltoprod/reg_results.csv -v
+#srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}cslb_vinson/leave1out_reg_results.mat -o ${OUTPUT_PATH}cslb_vinson/reg_results.csv -v
+#srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}cslb_w2v_eng/leave1out_reg_results.mat -o ${OUTPUT_PATH}cslb_w2v_eng/reg_results.csv -v
+#srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}cslb_w2v_fin/leave1out_reg_results.mat -o ${OUTPUT_PATH}cslb_w2v_fin/reg_results.csv -v
+#srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}vinson_aaltoprod/leave1out_reg_results.mat -o ${OUTPUT_PATH}vinson_aaltoprod/reg_results.csv -v
+
+srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}vinson_cslb/leave1out_reg_results.mat -o ${OUTPUT_PATH}vinson_cslb/reg_results.csv -v
+srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}vinson_w2v_eng/leave1out_reg_results.mat -o ${OUTPUT_PATH}vinson_w2v_eng/reg_results.csv -v
+srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}vinson_w2v_fin/leave1out_reg_results.mat -o ${OUTPUT_PATH}vinson_w2v_fin/reg_results.csv -v
+srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}w2v_eng_aaltoprod/leave1out_reg_results.mat -o ${OUTPUT_PATH}w2v_eng_aaltoprod/reg_results.csv -v
+srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}w2v_eng_cslb/leave1out_reg_results.mat -o ${OUTPUT_PATH}w2v_eng_cslb/reg_results.csv -v
+srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}w2v_eng_vinson/leave1out_reg_results.mat -o ${OUTPUT_PATH}w2v_eng_vinson/reg_results.csv -v
+srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}w2v_eng_w2v_fin/leave1out_reg_results.mat -o ${OUTPUT_PATH}w2v_eng_w2v_fin/reg_results.csv -v
+srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}w2v_fin_aaltoprod/leave1out_reg_results.mat -o ${OUTPUT_PATH}w2v_fin_aaltoprod/reg_results.csv -v
+srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}w2v_fin_cslb/leave1out_reg_results.mat -o ${OUTPUT_PATH}w2v_fin_cslb/reg_results.csv -v
+srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}w2v_fin_vinson/leave1out_reg_results.mat -o ${OUTPUT_PATH}w2v_fin_vinson/reg_results.csv -v
+srun  -o $LOG_FILE python analyze_results_leave1out.py ${OUTPUT_PATH}w2v_fin_w2v_eng/leave1out_reg_results.mat -o ${OUTPUT_PATH}w2v_fin_w2v_eng/reg_results.csv -v

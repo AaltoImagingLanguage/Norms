@@ -35,4 +35,4 @@ module load anaconda3
 
 
 # Run the analysis
-srun -o $LOG_FILE python zero_shot_decoding_leave1out_perm.py ${INPUT_FILES[*]} -i $SLURM_ARRAY_TASK_ID -o $OUTPUT_FILE --reg
+srun -o $LOG_FILE python zero_shot_decoding_leave1out_perm.py ${INPUT_FILES[*]} -i $SLURM_ARRAY_TASK_ID -o $OUTPUT_FILE
