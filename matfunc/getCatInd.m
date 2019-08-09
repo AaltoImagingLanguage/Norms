@@ -1,7 +1,7 @@
 function [catind,catnames] = getCatInd(vocab, normset)
 %this function requires matlan 2017a or newer to work
 
-fn = '/m/nbe/project/aaltonorms/data/SuperNormList.xlsx'; 
+fn = '/m/nbe/project/aaltonorms/data/SuperNormList.xls'; 
 opts = detectImportOptions(fn);       
 T = readtable(fn,opts);
 catnames = unique(T.category);
