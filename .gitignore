@@ -1,2 +1,4 @@
 *.pyc
 corpora
+old
+__pycache__

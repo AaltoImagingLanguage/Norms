@@ -25,7 +25,7 @@ figure_dir = '/m/nbe/project/aaltonorms/figures/'
 parser = argparse.ArgumentParser(description='Learn a mapping from one norm dataset to another')
 parser.add_argument('norm1', type=str, help='Norm data set 1')
 parser.add_argument('norm2', type=str, help='Norm data set 2')
-parser.add_argument('--reg', action='store_true', help='Whether to use regularization')
+
 args = parser.parse_args()
 
 print('Comparing', os.path.basename(args.norm1), 'to', os.path.basename(args.norm2))
@@ -38,10 +38,10 @@ LUT = pd.read_excel('/m/nbe/project/aaltonorms/data/SuperNormList.xls',
                     header=0, index_col=0)
 
 #Exclude homonyms, verbs and abstract words
-LUT = LUT[LUT['action_words'] ==0]
+LUT = LUT[LUT['action_words']==0]
 #LUT = LUT[LUT['category']!="abstract_mid"]
 #LUT = LUT[LUT['category']!="abstract_high"]
-LUT = LUT[LUT['category'].str.contains("abstract")]
+#LUT = LUT[LUT['category'].str.contains("abstract")]
 
 norm1_vocab = pd.read_csv(normpath + norm1 + '/' + 'vocab.csv', 
                           encoding='utf-8', 
