@@ -22,23 +22,25 @@ module load anaconda3
 # Run the analyses
 
 
-#srun -o $LOG_FILE python zero_shot_decoding_leave1out.py aaltoprod cslb  --reg
-#srun -o $LOG_FILE python zero_shot_decoding_leave1out.py aaltoprod vinson  --reg
+srun -o $LOG_FILE python zero_shot_decoding_leave1out.py aaltoprod cslb  --reg
+srun -o $LOG_FILE python zero_shot_decoding_leave1out.py aaltoprod vinson  --reg
 #srun -o $LOG_FILE python zero_shot_decoding_leave1out.py aaltoprod w2v_eng  --reg
 #srun -o $LOG_FILE python zero_shot_decoding_leave1out.py aaltoprod w2v_fin  --reg
 #srun -o $LOG_FILE python zero_shot_decoding_leave1out.py cslb aaltoprod  --reg
 #srun -o $LOG_FILE python zero_shot_decoding_leave1out.py cslb vinson  --reg
 #srun -o $LOG_FILE python zero_shot_decoding_leave1out.py cslb w2v_eng  --reg
 #srun -o $LOG_FILE python zero_shot_decoding_leave1out.py cslb w2v_fin  --reg
+
 #srun -o $LOG_FILE python zero_shot_decoding_leave1out.py vinson aaltoprod  --reg
 #srun -o $LOG_FILE python zero_shot_decoding_leave1out.py vinson cslb  --reg
 #srun -o $LOG_FILE python zero_shot_decoding_leave1out.py vinson w2v_eng  --reg
 #srun -o $LOG_FILE python zero_shot_decoding_leave1out.py vinson w2v_fin  --reg
 #srun -o $LOG_FILE python zero_shot_decoding_leave1out.py w2v_eng aaltoprod  --reg
 #srun -o $LOG_FILE python zero_shot_decoding_leave1out.py w2v_eng cslb  --reg
-srun -o $LOG_FILE python zero_shot_decoding_leave1out.py w2v_eng vinson  --reg
-srun -o $LOG_FILE python zero_shot_decoding_leave1out.py w2v_eng w2v_fin  --reg
-srun -o $LOG_FILE python zero_shot_decoding_leave1out.py w2v_fin aaltoprod  --reg
-srun -o $LOG_FILE python zero_shot_decoding_leave1out.py w2v_fin cslb  --reg
-srun -o $LOG_FILE python zero_shot_decoding_leave1out.py w2v_fin vinson  --reg
-srun -o $LOG_FILE python zero_shot_decoding_leave1out.py w2v_fin w2v_eng  --reg
+
+#srun -o $LOG_FILE python zero_shot_decoding_leave1out.py w2v_eng vinson  --reg
+#srun -o $LOG_FILE python zero_shot_decoding_leave1out.py w2v_eng w2v_fin  --reg
+#srun -o $LOG_FILE python zero_shot_decoding_leave1out.py w2v_fin aaltoprod  --reg
+#srun -o $LOG_FILE python zero_shot_decoding_leave1out.py w2v_fin cslb  --reg
+#srun -o $LOG_FILE python zero_shot_decoding_leave1out.py w2v_fin vinson  --reg
+#srun -o $LOG_FILE python zero_shot_decoding_leave1out.py w2v_fin w2v_eng  --reg

@@ -23,7 +23,7 @@ dist = "cosine"
 figure_dir = '/m/nbe/project/aaltonorms/figures/'
 #norms = ["aaltoprod", "cslb", "mcrae", "vinson", "w2v_eng", "w2v_fin"]
 norms = ["aaltoprod", "cslb", "vinson", "w2v_eng", "w2v_fin"]
-
+bonferroni_factor = 10
 
 #Get data from the big excel file
 LUT = pd.read_excel('/m/nbe/project/aaltonorms/data/SuperNormList.xls', 
@@ -122,9 +122,11 @@ def compare_norms(A,B, label_A, label_B,  cats=None):
     plt.clim(0, 1);
     plt.colorbar(ax=[ax1, ax2])
     rho, pval = spearmanr(get_distances(A)[1], get_distances(B)[1])
-   
+    p_corr = pval *bonferroni_factor
     print(label_A + " vs. " + label_B + "  rho is: " + 
         str(round(rho,2)) + ", pvalue = " + str(round(pval,5)))
+    if p_corr < 0.001:
+       print("Corrected p < 0.001")
     plt.savefig(figure_dir + label_A + "_" + label_B + "_all2all_norm_comparison.pdf", 
                 format='pdf', dpi=1000, bbox_inches='tight')
 

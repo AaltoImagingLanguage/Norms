@@ -40,15 +40,21 @@ def write_array2csv(outfile, array):
 LUT_file = '/m/nbe/project/aaltonorms/data/SuperNormList.xls'
 norms_path = '/m/nbe/project/aaltonorms/raw/'
 out_path = '/m/nbe/project/aaltonorms/data/'
-norms = ['cslb', 'vinson','aaltoprod', 'aalto85',  'cmu']
+norms = [#'cslb', 
+         #'vinson',
+         #'aaltoprod', 
+         #'aalto85',  
+         #'cmu', 
+         'mcrae']
 # not implemented yet w2vFin and w2vEng  and 'mcrae
 # w2vFin: 'Ginter/ginter-300-5+5/AaltoNorm_words/lemma/context_5+5/ginter_lemma_5+5/concepts_vectors.csv',
 
-infiles = ['CSLB/feature_matrix.dat', 
-           'Vinson/Vinson-BRM-2008/Vinson_feature_matrix_all.csv',
-           'AaltoProduction/concept_feature_matrix_pf0.1.csv',
-           'Aalto85questions/Aalto85_sorted20160204.mat',
-           'CMU/bagOfFeatures_inStruct.mat']
+infiles = [#'CSLB/feature_matrix.dat', 
+           #'Vinson/Vinson-BRM-2008/Vinson_feature_matrix_all.csv',
+           #'AaltoProduction/concept_feature_matrix_pf0.1.csv',
+           #'Aalto85questions/Aalto85_sorted20160204.mat',
+           #'CMU/bagOfFeatures_inStruct.mat',
+           'McRae/concept_feature_matrix.csv']
 
 norms_dict = {}
 for i in range(len(norms)):
@@ -83,13 +89,13 @@ for norm in norms:
         elif  norm == 'cslb':  
             orig = pd.read_table(norms_path + norms_dict.get(norm), header=0, 
                               index_col=0)
-        elif  norm == 'aaltoprod':  
+        elif  norm == 'aaltoprod' or norm == 'mcrae':  
             orig = pd.read_csv(norms_path + norms_dict.get(norm), header=0, 
                               index_col=0, sep='\t')  
             #Remove one instance of metri, since this is a duplicate + "jolla",
             #which was ambiguous
             orig = orig.loc[~orig.index.duplicated(keep='first')]
-            orig = orig.drop("jolla")
+            #orig = orig.drop("jolla")
   
     
         #Getvectors

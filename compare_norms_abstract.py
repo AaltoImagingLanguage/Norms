@@ -25,7 +25,7 @@ figure_dir = '/m/nbe/project/aaltonorms/figures/'
 parser = argparse.ArgumentParser(description='Learn a mapping from one norm dataset to another')
 parser.add_argument('norm1', type=str, help='Norm data set 1')
 parser.add_argument('norm2', type=str, help='Norm data set 2')
-
+parser.add_argument('norm3', type=str, help='Norm data set 3')
 args = parser.parse_args()
 
 print('Comparing', os.path.basename(args.norm1), 'to', os.path.basename(args.norm2))
@@ -37,8 +37,8 @@ norm3 = args.norm3
 LUT = pd.read_excel('/m/nbe/project/aaltonorms/data/SuperNormList.xls', 
                     encoding='utf-8', 
                     header=0, index_col=0)
-picks = LUT[LUT[norm1].notnull() & LUT[norm2.notnull() &
-            LUT[norm3].notnull()]]
+bonferroni_factor = 3
+
 #Exclude homonyms, verbs and abstract words
 #LUT = LUT[LUT['action_words']==0]
 
@@ -57,6 +57,10 @@ norm2_vocab = pd.read_csv(normpath + norm2 + '/' + 'vocab.csv',
                           encoding='utf-8', 
                          delimiter = '\t', header=None, index_col=0)
 
+norm3_vocab = pd.read_csv(normpath + norm3 + '/' + 'vocab.csv', 
+                          encoding='utf-8', 
+                         delimiter = '\t', header=None, index_col=0)
+
 norm1_vecs = pd.read_csv(normpath + norm1 + '/' + 'vectors.csv', 
                          encoding='utf-8', delimiter = '\t', 
                          header=None, index_col=None)
@@ -65,19 +69,26 @@ norm2_vecs = pd.read_csv(normpath + norm2 + '/' + 'vectors.csv',
                          encoding='utf-8', 
                          delimiter = '\t', header=None, index_col=None)
 
-picks = LUT[LUT[norm1].notnull() & LUT[norm2].notnull()]
+norm3_vecs = pd.read_csv(normpath + norm3 + '/' + 'vectors.csv', 
+                         encoding='utf-8', 
+                         delimiter = '\t', header=None, index_col=None)
+
+
+picks = LUT[LUT[norm1].notnull() & LUT[norm2].notnull() &
+            LUT[norm3].notnull()]
 picks = picks.sort_values(by=["category"])
 
 #Set word label as index
 norm1_vecs.set_index(norm1_vocab.index, inplace=True)
 norm2_vecs.set_index(norm2_vocab.index, inplace=True)
+norm3_vecs.set_index(norm3_vocab.index, inplace=True)
 
 norm1_vecs = norm1_vecs.loc[picks[norm1]]
 norm2_vecs = norm2_vecs.loc[picks[norm2]]
-
+norm3_vecs = norm3_vecs.loc[picks[norm3]]
 
 #Check dimensions
-assert len(norm1_vecs) == len(norm2_vecs)
+assert len(norm1_vecs) == len(norm2_vecs) == len(norm3_vecs)
 print("Number of overlapping words: " + str(len(norm1_vecs)))
 
 
@@ -119,12 +130,13 @@ def compare_norms(A,B, label_A, label_B,  cats=None):
     plt.clim(0, 1);
     plt.colorbar(ax=[ax1, ax2])
     rho, pval = spearmanr(get_distances(A)[1], get_distances(B)[1])
-   
+    p_corr = pval *bonferroni_factor
     print(label_A + " vs. " + label_B + "  rho is: " + 
         str(round(rho,2)) + ", pvalue = " + str(round(pval,5)))
     plt.savefig(figure_dir + label_A + "_" + label_B + "_norm_comparison.pdf", 
                 format='pdf', dpi=1000, bbox_inches='tight')
-
+    if p_corr < 0.001:
+       print("Corrected p < 0.001")
         
    
 index = []
@@ -150,29 +162,34 @@ def hierarchical_clustering(norms,labels,font):
 
 norm1_index,norm1_Z = hierarchical_clustering(norm1_vecs.values, 
                                               picks['eng_name'].tolist(),'8.')
-plt.savefig(figure_dir + norm1 + "_hierarchical_clustering.pdf", 
+plt.savefig(figure_dir + norm1 + "_abstract_hierarchical_clustering.pdf", 
             format='pdf', dpi=1000, bbox_inches='tight')
 norm2_index,norm2_Z = hierarchical_clustering(norm2_vecs.values, 
                                               picks['eng_name'].tolist(),'8.')
-plt.savefig(figure_dir + norm2 + "_hierarchical_clustering.pdf", 
+plt.savefig(figure_dir + norm2 + "_abstract_hierarchical_clustering.pdf", 
             format='pdf', dpi=1000, bbox_inches='tight')
-
+norm3_index,norm2_Z = hierarchical_clustering(norm2_vecs.values, 
+                                              picks['eng_name'].tolist(),'8.')
+plt.savefig(figure_dir + norm3 + "_abstract_hierarchical_clustering.pdf", 
+            format='pdf', dpi=1000, bbox_inches='tight')
 compare_norms(norm1_vecs.values, norm2_vecs.values, norm1,norm2)
+compare_norms(norm2_vecs.values, norm3_vecs.values, norm2,norm3)
+compare_norms(norm1_vecs.values, norm3_vecs.values, norm1,norm3)
 
-def get_different_clusters(Z):
-    D1=dendrogram(Z,
-                  color_threshold=1,
-                  p=40,
-                  truncate_mode='lastp',
-                  distance_sort='ascending')
-    plt.close()
-    D2=dendrogram(Z,
-                  #color_list=['g',]*7,
-                  p=102,
-                  truncate_mode='lastp',
-                  distance_sort='ascending')
-    plt.close()
-    from itertools import groupby
-    n = [list(group) for key, group in groupby(D2['ivl'],
-         lambda x: x in D1['ivl'])]
-    return n
+#def get_different_clusters(Z):
+#    D1=dendrogram(Z,
+#                  color_threshold=1,
+#                  p=40,
+#                  truncate_mode='lastp',
+#                  distance_sort='ascending')
+#    plt.close()
+#    D2=dendrogram(Z,
+#                  #color_list=['g',]*7,
+#                  p=102,
+#                  truncate_mode='lastp',
+#                  distance_sort='ascending')
+#    plt.close()
+#    from itertools import groupby
+#    n = [list(group) for key, group in groupby(D2['ivl'],
+#         lambda x: x in D1['ivl'])]
+#    return n
