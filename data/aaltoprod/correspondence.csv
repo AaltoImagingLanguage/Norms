@@ -1,0 +1,301 @@
+id	fin_name	eng_name	category	word_class	aaltoprod	aalto85	cslb	mcrae	vinson	cmu	w2v_fin	w2v_eng	homonym_fin	homonym_eng	COMMENT
+3	onnettomuus	accident	abstract	noun	onnettomuus						onnettomuus	accident			
+9	näyttelijä	actress	person	noun	näyttelijä						näyttelijä	actress			
+11	etu	advantage	abstract	noun	etu	etu					etu	advantage			
+13	lentokone	airplane	vehicle	noun	lentokone		aeroplane	airplane	AIRPLANE_object	airplane	lento#kone	airplane			
+14	ikä	age	abstract	noun	ikä	ikä					ikä	age			
+16	albumi	album	text	noun	albumi						albumi	album			
+27	asunto	apartment	place	noun	asunto			apartment		apartment	asunto	apartment			
+29	liite	appendix	abstract	noun	liite	liite					liite	appendix			
+30	omena	apple	fruit	noun	omena		apple	apple	APPLE_object	apple	omena	apple			
+32	sovellus	application	abstract	noun	sovellus						sovellus	application			
+44	armeija	army	abstract	noun	armeija	armeija					armeija	army			
+48	artisokka	artichoke	vegetable	noun	artisokka		artichoke		ARTICHOKE_object	artichoke	artisokka	artichoke			
+53	parsa	asparagus	vegetable	noun	parsa		asparagus	asparagus	ASPARAGUS_object	asparagus	parsa	asparagus			
+60	kirjailija	author	person	noun	kirjailija						kirjailija	author			
+63	kirves	axe	tool	noun	kirves		axe	axe	AXE_object	axe	kirves	axes			
+66	selkä	back	bodypart	noun	selkä	selkä				back	selkä	back			
+67	tausta	background	abstract	noun	tausta	tausta					tausta	background			
+70	bakteeri	bacterium	medicine	noun	bakteeri	bakteeri					bakteeri	bacterium			category
+76	pallo	ball	sport	noun	pallo	pallo	ball	ball		ball	pallo	ball			
+78	banaani	banana	fruit	noun	banaani		banana	banana	BANANA_object	banana	banaani	banana			
+103	papu	bean	vegetable	noun	papu		bean	beans	BEAN_object	bean	papu	bean			
+104	karhu	bear	animal	noun	karhu	karhu	bear	bear	BEAR_object	bear	karhu	bear			
+106	kauneus	beauty	abstract	noun	kauneus	kauneus					kauneus	beauty			
+125	polkupyörä	bicycle	vehicle	noun	polkupyörä		bicycle	bike	BICYCLE_object	bicycle	polku#pyörä	bicycle			
+141	veri	blood	bodypart	noun	veri					blood	veri	blood			
+143	pusero	blouse	clothing	noun	pusero		blouse	blouse	BLOUSE_object	blouse	pusero	blouse			
+149	vene	boat	vehicle	noun	vene	vene	boat	boat	BOAT_object	boat	vene	boat			
+153	pommi	bomb	weapon	noun	pommi		bomb	bomb	BOMB_object	bomb	pommi	bomb			
+157	kirja	book	text	noun	kirja	kirja	book	book	BOOK_object	book	kirja	book			
+169	laatikko	box	container	noun	laatikko		box	box	BOX_object	box	laatikko	box			
+170	poika	boy	person	noun	poika					boy	poika	boy			
+178	tauko	break	abstract	noun	tauko	tauko					tauko	break			
+186	0	bridge	place	noun	silta	silta	bridge	bridge		bridge	silta	bridge			
+188	0	0	vegetable	noun	parsakaali		broccoli	broccoli	BROCCOLI_object	broccoli	parsa#kaali	broccoli			
+190	pronssi	bronze	material	noun	pronssi						pronssi	bronze			
+191	0	broom	tool	noun	luuta		broom	broom	BROOM_object	broom	luuta	broom			
+192	harja	brush	tool	noun	harja		brush	brush	BRUSH_object	brush	harja	brush			
+214	0	0	vehicle	noun	bussi	bussi	bus	bus	BUS_object	bus	bussi	bus			
+223	kaali	cabbage	vegetable	noun	kaali		cabbage	cabbage	CABBAGE_object	cabbage	kaali	cabbage			
+234	0	0	animal	noun	kameli		camel	camel	CAMEL_object	camel	kameli	camel			
+237	0	camp	place	noun	leiri					camp	leiri	camp			
+244	tykki	0	weapon	noun	tykki		cannon	cannon		cannon	tykki	cannon			
+252	0	0	vehicle	noun	auto	auto	car	car	CAR_object	car	auto	car			
+254	0	card	text	noun	kortti			card_(greeting)		card	kortti	card			
+259	0	0	vehicle	noun	vaunu		carriage				vaunu	carriage			
+260	0	0	vegetable	noun	porkkana		carrot	carrot	CARROT_object	carrot	porkkana	carrot			
+267	0	0	place	noun	linna	linna	castle				linna	castle			
+268	0	0	animal	noun	kissa	kissa	cat	cat	CAT_object	cat	kissa	cat			
+275	0	0	vegetable	noun	kukkakaali		cauliflower	cauliflower	CAULIFLOWER_object	cauliflower	kukka#kaali	cauliflower			
+280	selleri	0	vegetable	noun	selleri		celery	celery	CELERY_object	celery	selleri	celery			
+291	0	0	furniture	noun	tuoli		chair	chair	CHAIR_object	chair	tuoli	chair			
+296	0	change	abstract	noun	muutos	muutos					muutos	change			
+298	kaaos	chaos	abstract	noun	kaaos						kaaos	chaos			
+306	0	0	fruit	noun	kirsikka		cherry	cherry	CHERRY_object	cherry	kirsikka	cherry			
+311	0	child	person	noun	lapsi	lapsi				child	lapsi	child			
+325	0	0	place	noun	kirkko	kirkko		church		church	kirkko	church			
+348	0	0	nature	noun	pilvi	pilvi				cloud	pilvi	cloud			
+352	takki	coat	clothing	noun	takki		coat	coat	COAT_object	coat	takki	coat			
+371	0	comb	tool	noun	kampa	kampa	comb	comb	COMB_object	comb	kampa	comb			
+375	0	community	social	noun	yhteisö						yhteisö	community			
+377	0	concert	social	noun	konsertti						konsertti	concert			
+386	maissi	0	food	noun	maissi		corn	corn	CORN_object	corn	maissi	corn			
+397	lehmä	0	animal	noun	lehmä		cow	cow	COW_object	cow	lehmä	cow			
+411	0	creature	person	noun	olio						olio	creature			
+424	0	0	vegetable	noun	kurkku		cucumber	cucumber	CUCUMBER_object	cucumber	kurkku	cucumber			
+442	tytär	daughter	person	noun	tytär						tytär	daughter			
+448	demokratia	democracy	abstract	noun	demokratia	demokratia					demokratia	democracy			
+462	ulottuvuus	dimension	abstract	noun	ulottuvuus						ulottuvuus	dimension			
+474	koira	dog	animal	noun	koira	koira	dog	dog	DOG_object	dog	koira	dog			
+481	aasi	donkey	animal	noun	aasi		donkey	donkey	DONKEY_object	donkey	aasi	donkey			
+482	ovi	door	furniture	noun	ovi			door	DOOR_object	door	ovi	door			
+493	haave	dream	abstract	noun	haave						haave				noun & verb
+494	uni	dream	abstract	noun	uni						uni	dream			noun & verb
+495	mekko	dress	clothing	noun	mekko		dress	dress	DRESS_object	dress	mekko	dress			noun & verb
+498	pora	drill	tool	noun	pora	pora	drill	drill	DRILL_object		pora	drill			noun & verb
+507	ankka	duck	bird	noun	ankka	ankka	duck	duck	DUCK_object	duck	ankka	duck			
+512	kotka	eagle	bird	noun	kotka	kotka	eagle	eagle		eagle	kotka	eagle			
+513	korva	ear	bodypart	noun	korva	korva	ear		EAR_object	ear	korva	ear			
+518	maapallo	earth	nature	noun	maapallo					earth	maa#pallo	earth			
+521	koulutus	education	abstract	noun	koulutus						koulutus	education			
+526	norsu	elephant	animal	noun	norsu		elephant	elephant	ELEPHANT_object	elephant	norsu	elephant			
+534	loppu	end	abstract	noun	loppu						loppu	end			
+535	veturi	engine	vehicle	noun	veturi					engine	veturi	engine			
+540	purkaus	eruption	abstract	noun	purkaus	purkaus					purkaus	eruption			
+546	tapahtuma	event	social	noun	tapahtuma						tapahtuma	event			
+547	todiste	evidence	abstract	noun	todiste	todiste					todiste	evidence			
+550	kokemus	experience	abstract	noun	kokemus	kokemus					kokemus	experience			
+551	koe	experiment	abstract	noun	koe						koe	experiment			
+552	ilme	expression	action	noun	ilme	ilme					ilme	expression			
+553	silmä	eye	bodypart	noun	silmä	silmä	eye		EYE_object	eye	silmä	eye			
+558	tehdas	factory	place	noun	tehdas	tehdas				factory	tehdas	factory			
+559	kohtalo	faith	abstract	noun	kohtalo	kohtalo					kohtalo	faith			
+565	isä	father	person	noun	isä						isä	father			
+571	naaras	female	abstract	noun	naaras						naaras	female			
+572	aita	fence	furniture	noun	aita		fence	fence	FENCE_object	fence	aita	fence			
+580	sormi	finger	bodypart	noun	sormi	sormi	finger		FINGER_object	finger	sormi	finger			
+583	tuli	fire	nature	noun	tuli	tuli				fire	tuli	fire			
+614	haarukka	fork	tool	noun	haarukka		fork	fork	FORK_object	fork	haarukka	fork			
+615	kettu	fox	animal	noun	kettu		fox	fox	FOX_object	fox	kettu	fox			
+618	vapaus	freedom	abstract	noun	vapaus	vapaus					vapaus	freedom			
+621	kitka	friction	abstract	noun	kitka	kitka					kitka	friction			
+622	ystävä	friend	person	noun	ystävä						ystävä	friend			
+631	polttoaine	fuel	material	noun	polttoaine					fuel	poltto#aine	fuel			
+632	rahoitus	funding	abstract	noun	rahoitus						rahoitus	funding			
+642	kaasu	gas	material	noun	kaasu					gas	kaasu	gas			
+643	portti	gate	furniture	noun	portti		gate	gate	GATE_object	gate	portti	gate			
+645	vaihde	gear	abstract	noun	vaihde						vaihde	gear			
+646	geeni	gene	abstract	noun	geeni	geeni					geeni	gene			
+654	kirahvi	giraffe	animal	noun	kirahvi		giraffe	giraffe	GIRAFFE_object	giraffe	kirahvi	giraffe			
+657	jäätikkö	glacier	nature	noun	jäätikkö					glacier	jäätikkö	glacier			
+660	käsine	glove	clothing	noun	käsine		gloves	gloves	GLOVE_object	glove	käsine	glove			
+665	vuohi	goat	animal	noun	vuohi		goat	goat	GOAT_object	goat	vuohi	goat			
+676	viinirypäle	grape	fruit	noun	viinirypäle		grape	grape	GRAPE_object	grape	rypäle	grape			
+677	greippi	grapefruit	fruit	noun	greippi		grapefruit	grapefruit	GRAPEFRUIT_object	grapefruit	greippi	grapefruit			typo in AaltoProd
+694	ryhmä	group	social	noun	ryhmä						ryhmä	group			
+699	kitara	guitar	instrument	noun	kitara		guitar	guitar		guitar	kitara	guitar			
+701	ase	gun	weapon	noun	ase		gun	gun	GUN_object	gun	ase	gun			
+705	hiukset	hair	bodypart	noun	hiukset		hair		HAIR_object	hair	hius	hair			
+710	vasara	hammer	tool	noun	vasara		hammer	hammer	HAMMER_object	hammer	vasara	hammer			noun & verb
+713	käsi	hand	bodypart	noun	käsi	käsi			HAND_object	hand	käsi	hand			
+728	pää	head	bodypart	noun	pää				HEAD_object	head	pää	head			
+735	helikopteri	helicopter	vehicle	noun	helikopteri		helicopter	helicopter	HELICOPTER_object	helicopter	helikopteri	helicopter			
+744	vaellus	hike	sport	noun	vaellus						vaellus	hike			
+747	historia	history	abstract	noun	historia	historia					historia	history			
+751	kuokka	hoe	tool	noun	kuokka		hoe	hoe	HOE_object	hoe	kuokka	hoe			noun & verb
+765	hevonen	horse	animal	noun	hevonen	hevonen	horse	horse	HORSE_object	horse	hevonen	horse			
+768	sairaala	hospital	place	noun	sairaala					hospital	sairaala	hospital			
+769	hotelli	hotel	place	noun	hotelli					hotel	hotelli	hotel			
+775	metsästys	hunting	sport	noun	metsästys	metsästys					metsästys	hunting			
+786	aate	ideology	abstract	noun	aate	aate					aate	ideology			
+789	infektio	infection	medicine	noun	infektio	infektio					infektio	infection			
+790	inflaatio	inflation	abstract	noun	inflaatio	inflaatio					inflaatio	inflation			
+796	internet	internet	abstract	noun	internet	internet					internet	internet			
+797	sijoitus	investment	abstract	noun	sijoitus	sijoitus					sijoitus	investment			
+802	saari	island	nature	noun	saari	saari				island	saari	island			
+807	vankila	jail	place	noun	vankila	vankila				jail	vankila	jail			
+820	tuomari	judge	person	noun	tuomari	tuomari					tuomari	judge			
+836	kuningas	king	person	noun	kuningas	kuningas					kuningas	king			
+844	puukko	knife	weapon	noun	puukko						puukko				homonym
+845	veitsi	knife	weapon	noun	veitsi		knife	knife	KNIFE_object	knife	veitsi	knife			homonym
+846	veli	brother	person	noun	veli						veli	brother			Concept_list translation wrong
+850	tieto	knowledge	abstract	noun	tieto	tieto					tieto	knowledge			
+871	jalka	leg	bodypart	noun	jalka	jalka	leg		LEG_object	leg	jalka	leg			
+872	legenda	legend	abstract	noun	legenda						legenda	legend			
+873	sitruuna	lemon	fruit	noun	sitruuna		lemon	lemon	LEMON_object	lemon	sitruuna	lemon			
+882	kirjasto	library	place	noun	kirjasto	kirjasto				library	kirjasto	library			
+889	lime	lime	fruit	noun	lime		lime	lime	LIME_object	lime	lime	lime			
+894	leijona	lion	animal	noun	leijona	leijona	lion	lion	LION_object	lion	leijona	lion			
+895	huuli	lip	bodypart	noun	huulet	huulet	lips		LIPS_object	lip	huuli	lip			
+911	logiikka	logic	abstract	noun	logiikka	logiikka					logiikka	logic			
+925	taika	magic	abstract	noun	taika	taika					taika	magic			
+932	mies	man	person	noun	mies					man	mies	man			
+936	kartano	mansion	place	noun	kartano					mansion	kartano	mansion			
+943	merkintä	marking	abstract	noun	merkintä	merkintä					merkintä	marking			
+946	materiaali	material	material	noun	materiaali						materiaali	material			
+951	merkitys	meaning	abstract	noun	merkitys	merkitys					merkitys	meaning			
+957	väliaine	medium	abstract	noun	väliaine						väli#aine	medium			
+958	kokous	meeting	abstract	noun	kokous						kokous	meeting			
+963	meriitti	merit	abstract	noun	meriitti	meriitti					meriitti	merit			
+964	metalli	metal	material	noun	metalli						metalli	metal			
+966	metri	meter	abstract	noun	metri						metri	meter			
+978	ohjus	missile	weapon	noun	ohjus			missile		missile	ohjus	missile			
+982	lapaset	mittens	clothing	noun	lapaset		mittens	mittens		mittens	lapanen	mittens			
+987	luostari	monastery	place	noun	luostari						luostari	monastery			
+988	raha	money	abstract	noun	raha	raha				money	raha	money			
+994	aamu	morning	time	noun	aamu	aamu					aamu	morning			
+998	äiti	mother	person	noun	äiti						äiti	mother			
+999	moottori	motor	appliance	noun	moottori					motor	moottori	motor			The colloquialism for the word
+1001	vuori	mountain	nature	noun	vuori	vuori				mountain	vuori	mountain			
+1002	hiiri	mouse	animal	noun	hiiri	hiiri	mouse	mouse		mouse	hiiri	mouse			
+1004	suu	mouth	bodypart	noun	suu	suu			MOUTH_object	mouth	suu	mouth			
+1013	museo	museum	place	noun	museo	museo				museum	museo	museum			
+1014	sieni	mushroom	vegetable	noun	sieni		mushroom	mushroom	MUSHROOM_object	mushroom	sieni	mushroom			
+1015	musiikki	music	abstract	noun	musiikki	musiikki					musiikki	music			
+1022	luonto	nature	nature	noun	luonto	luonto					luonto	nature			Code claimed this was not in corpus?
+1029	pesä	nest	nature	noun	pesä	pesä				nest	pesä	nest			
+1031	uutinen	news	abstract	noun	uutinen						uutinen	news			
+1032	sanomalehti	newspaper	text	noun	sanomalehti		newspaper			newspaper	sanoma#lehti	newspaper			
+1034	ilta	evening	time	noun	ilta	ilta					ilta	evening			
+1038	nenä	nose	bodypart	noun	nenä	nenä	nose		NOSE_object	nose	nenä	nose			
+1044	tammi	oak	plant	noun	tammi		oak	oak		oak	tammi	oak			
+1055	sipuli	onion	vegetable	noun	sipuli		onion	onions	ONION_object	onion	sipuli	onion			
+1056	mielipide	opinion	abstract	noun	mielipide						mieli#pide	opinion			
+1067	happi	oxygen	other	noun	happi	happi					happi	oxygen			
+1073	maalaus	painting	text	noun	maalaus					painting	maalaus	painting			
+1074	palatsi	palace	place	noun	palatsi						palatsi	palace			
+1079	pantteri	panther	animal	noun	pantteri		panther	panther			pantteri	panther			
+1081	paperi	paper	text	noun	paperi					paper	paperi	paper			
+1085	seurakunta	parish	social	noun	seurakunta						seura#kunta	parish			
+1086	puisto	park	place	noun	puisto	puisto				park	puisto	park			
+1091	juhla	party	social	noun	juhla					party	juhla	party			
+1094	potilas	patient	person	noun	potilas						potilas	patient			
+1099	persikka	peach	fruit	noun	persikka		peach	peach	PEACH_object	peach	persikka	peach			
+1102	päärynä	pear	fruit	noun	päärynä		pear	pear	PEAR_object	pear	päärynä	pear			
+1122	ilmiö	phenomenon	abstract	noun	ilmiö	ilmiö					ilmiö	phenomenon			typo in the Finnish translation
+1123	filosofi	philosopher	person	noun	filosofi						filosofi	philosopher			
+1127	lääkäri	physician	person	noun	lääkäri	lääkäri					lääkäri	physician			
+1131	kuva	picture	text	noun	kuva						kuva	picture			
+1134	sika	pig	animal	noun	sika		pig	pig	PIG_object	pig	sika	pig			
+1140	ananas	pineapple	fruit	noun	ananas		pineapple	pineapple	PINEAPPLE_object	pineapple	ananas	pineapple			
+1156	leikki	game	abstract	noun	leikki	leikki					leikki	game			
+1157	näytelmä	play	social	noun	näytelmä	näytelmä					näytelmä	play			
+1158	pelaaja	player	person	noun	pelaaja						pelaaja	player			
+1162	pihdit	pliers	tool	noun	pihdit		pliers	pliers	PLIERS_object	pliers	pihdit	pliers			
+1168	runo	poem	text	noun	runo	runo					runo	poem			
+1171	poliisi	police	person	noun	poliisi	poliisi					poliisi	police			
+1172	politiikka	politics	abstract	noun	politiikka						politiikka	politics			
+1179	väestö	population	abstract	noun	väestö						väestö	population			
+1184	peruna	potato	vegetable	noun	peruna		potato	potato	POTATO_object	potato	peruna	potato			
+1189	teho	power	abstract	noun	teho	teho					teho	power			
+1190	valta	power	abstract	noun	valta	valta					valta	reign			
+1195	paine	pressure	abstract	noun	paine	paine					paine	pressure			
+1196	hinta	price	abstract	noun	hinta	hinta					hinta	price			
+1197	pappi	priest	person	noun	pappi	pappi					pappi	priest			
+1198	prinsessa	princess	person	noun	prinsessa						prinsessa	princess			
+1199	vanki	prisoner	person	noun	vanki	vanki					vanki	prisoner			
+1200	ongelma	problem	abstract	noun	ongelma	ongelma					ongelma	problem			
+1201	professori	professor	person	noun	professori					projector	professori	professor			
+1203	ylennys	promotion	abstract	noun	ylennys						ylennys	promotion			
+1210	kurpitsa	pumpkin	vegetable	noun	kurpitsa		pumpkin	pumpkin	PUMPKIN_object	pumpkin	kurpitsa	pumpkin			
+1222	määrä	quantity	abstract	noun	määrä	määrä					määrä	quantity			
+1226	kani	rabbit	animal	noun	kani		rabbit	rabbit	RABBIT_object	rabbit	kani	rabbit			
+1238	harava	rake	tool	noun	harava		rake	rake	RAKE_object	rake	harava	rake	haravoida	RAKE_actionV	
+1242	vadelma	raspberry	fruit	noun	vadelma		raspberry	raspberry	RASPBERRY_object	raspberry	vadelma	raspberry			
+1251	järki	reason	abstract	noun	järki	järki					järki	reason			
+1256	uskonto	religion	abstract	noun	uskonto						uskonto	religion			
+1260	maine	reputation	abstract	noun	maine	maine					maine	reputation			
+1268	arvio	review	abstract	noun	arvio	arvio					arvio	review			
+1277	sormus	ring	accessory	noun	sormus	sormus	ring_(jewellery)	ring_(jewelry)		ring	sormus	ring			
+1279	joki	river	nature	noun	joki	joki				river	joki	river			
+1280	tie	road	nature	noun	tie	tie				road	tie	road			
+1285	kallio	rock	nature	noun	kallio	kallio	rock	rock		rock	kallio	rock			
+1294	huone	room	place	noun	huone					room	huone	room			
+1316	satelliitti	satellite	vehicle	noun	satelliitti					satellite	satelliitti	satellite			
+1321	saha	saw	tool	noun	saha	saha	saw		SAW_object	saw	saha	saw			
+1330	huivi	scarf	clothing	noun	huivi		scarf	scarf	SCARF_object	scarf	huivi	scarf			
+1331	koulu	school	place	noun	koulu					school	koulu	school			
+1332	tiede	science	abstract	noun	tiede						tiede	science			
+1333	sakset	scissors	tool	noun	sakset	sakset	scissors	scissors	SCISSORS_object	scissors	sakset	scissors			
+1343	meri	sea	nature	noun	meri	meri				sea	meri	sea			
+1364	lammas	sheep	animal	noun	lammas	lammas	sheep	sheep	SHEEP_object	sheep	lammas	sheep			
+1370	laiva	ship	vehicle	noun	laiva	laiva	ship	ship	SHIP_object	ship	laiva	ship			
+1371	paita	shirt	clothing	noun	paita		shirt	shirt	SHIRT_object	shirt	paita	shirt			
+1372	kenkä	shoe	clothing	noun	kenkä		shoes	shoes	SHOE_object	shoe	kenkä	shoe			
+1380	lapio	shovel	tool	noun	lapio	lapio	shovel	shovel	SHOVEL_object	shovel	lapio	shovel			
+1391	koko	size	abstract	noun	koko	koko					koko	size			
+1398	hame	skirt	clothing	noun	hame		skirt	skirt	SKIRT_object	skirt	hame	skirt			
+1427	sukka	sock	clothing	noun	sukka		sock	socks	SOCK_object	sock	sukka	sock			
+1431	sotilas	soldier	person	noun	sotilas	sotilas					sotilas	soldier			
+1432	laulu	song	text	noun	laulu	laulu					laulu	song			
+1433	noki	soot	material	noun	noki						noki	soot			
+1443	puhe	speech	abstract	noun	puhe	puhe					puhe	speech			
+1452	lusikka	spoon	tool	noun	lusikka	lusikka	spoon	spoon	SPOON_object	spoon	lusikka	spoon			
+1455	talli	stable	place	noun	talli					stable	talli	stable			
+1461	tähti	star	nature	noun	tähti					star	tähti	star			
+1463	patsas	statue	other	noun	patsas						patsas	statue			
+1464	status	status	abstract	noun	status						status	status			
+1477	jakkara	stool	furniture	noun	jakkara		stool	stool_(furniture)		stool	jakkara	stool			
+1481	tarina	story	abstract	noun	tarina						tarina	story			
+1484	salmi	strait	nature	noun	salmi						salmi	strait			
+1486	mansikka	strawberry	fruit	noun	mansikka		strawberry	strawberry	STRAWBERRY_object	strawberry	mansikka	strawberry			
+1491	studio	studio	place	noun	studio						studio	studio			
+1494	menestys	success	abstract	noun	menestys						menestys	success			
+1510	villapaita	sweater	clothing	noun	villapaita		sweater	sweater	SWEATER_object	sweater	villa#paita	sweater			
+1516	miekka	sword	weapon	noun	miekka		sword	sword	SWORD_object	sword	miekka	sword			
+1518	oire	symptom	medicine	noun	oire						oire	symptom			
+1521	järjestelmä	system	abstract	noun	järjestelmä						järjestelmä	system			
+1522	pöytä	table	furniture	noun	pöytä		table	table		table	pöytä	table			
+1526	häntä	tail	bodypart	noun	häntä					tail	häntä	tail			
+1538	opettaja	teacher	person	noun	opettaja	opettaja					opettaja	teacher			
+1539	joukkue	team	social	noun	joukkue	joukkue					joukkue	team			
+1545	temppeli	temple	place	noun	temppeli	temppeli					temppeli	temple			
+1554	ajatus	thought	abstract	noun	ajatus						ajatus	thought			
+1559	peukalo	thumb	bodypart	noun	peukalo		thumb		THUMB_object	thumb	peukalo	thumb			
+1564	tiikeri	tiger	animal	noun	tiikeri		tiger	tiger	TIGER_object	tiger	tiikeri	tiger			
+1566	ajankohta	time	time	noun	ajankohta						ajan#kohta	time			
+1567	ajoitus	timing	time	noun	ajoitus	ajoitus					ajoitus	timing			
+1573	varvas	toe	bodypart	noun	varvas	varvas	toe		TOE_object	toe	varvas	toe			
+1587	torni	tower	place	noun	torni	torni					torni	tower			
+1592	0	train	vehicle	noun	juna	juna	train	train	TRAIN_object	train	juna	train			
+1605	rekka	0	vehicle	noun	rekka	rekka	truck	truck	TRUCK_object	truck	rekka	truck			
+1615	pinsetit	tweezers	tool	noun	pinsetit		tweezers		TWEEZERS_object	tweezers	pinsetit	tweezers			
+1624	taajama	0	place	noun	taajama					town	taajama	town			
+1630	laakso	0	nature	noun	laakso					valley	laakso	valley			
+1631	pakettiauto	van	vehicle	noun	pakettiauto		van	van	VAN_object	van	paketti#auto	van			
+1637	kylä	village	place	noun	kylä					village	kylä	village			
+1647	muuri	wall	place	noun	muuri			wall		wall	muuri	wall			
+1659	vesi	0	nature	noun	vesi					water	vesi	water			
+1660	0	0	vegetable	noun	vesimeloni		watermelon		WATERMELON_object	watermelon	vesi#meloni	watermelon			
+1661	0	wave	nature	noun	aalto	aalto				wave	aalto	wave			
+1665	0	weight	abstract	noun	paino	paino					paino	weight			
+1678	vaimo	wife	person	noun	vaimo					wife	vaimo	wife			
+1680	tahto	will	abstract	noun	tahto	tahto					tahto	will			
+1684	ikkuna	window	furniture	noun	ikkuna		window			window	ikkuna	window			
+1687	siipi	wing	bodypart	noun	siipi					wing	siipi	wing			noun & verb
+1691	susi	wolf	animal	noun	susi	susi	wolf			wolf	susi	wolf			
+1692	nainen	0	person	noun	nainen					woman	nainen	woman			
+1697	0	work	abstract	noun	teos	teos					teos	work			
+1712	0	youth	abstract	noun	nuoruus	nuoruus					nuoruus	youth			
+1714	seepra	zebra	animal	noun	seepra		zebra	zebra	ZEBRA_object	zebra	seepra	zebra			

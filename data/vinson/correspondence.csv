@@ -1,0 +1,396 @@
+id	fin_name	eng_name	category	word_class	aaltoprod	aalto85	cslb	mcrae	vinson	cmu	w2v_fin	w2v_eng	homonym_fin	homonym_eng	COMMENT
+2	hyväksyä	accept	exchange	noun					ACCEPT_actionV						
+5	kipu	ache	action	noun					ACHE_actionN						
+6	sattua	ache	Body-sense	verb					ACHE_actionV						
+8	hankkia	acquire	exchange	noun					ACQUIRE_actionV						
+10	myöntää	admit	communication	noun					ADMIT_actionV						
+12	neuvoa	advice	communication	noun					ADVISE_actionV						
+13	lentokone	airplane	vehicle	noun	lentokone		aeroplane	airplane	AIRPLANE_object	airplane	lento#kone	airplane			
+23	nilkka	ankle	bodypart	noun					ANKLE_object	ankle	nilkka	ankle			
+30	omena	apple	fruit	noun	omena		apple	apple	APPLE_object	apple	omena	apple			
+33	lähestymistapa	approach	action	noun					APPROACH_actionN						
+34	lähestyä	approach	Motion-direction	noun					APPROACH_actionV						
+39	riidellä	argue	communication	noun					ARGUE_actionV						
+40	käsivarsi	arm	bodypart	noun			arm		ARM_object	arm	käsi#varsi	arm			
+45	saapuminen	arrival	action	noun					ARRIVAL_actionN						
+46	saapua	arrive	Motion-direction	noun					ARRIVE_actionV						
+48	artisokka	artichoke	vegetable	noun	artisokka		artichoke		ARTICHOKE_object	artichoke	artisokka	artichoke			
+49	nousta	ascend	Motion-direction	noun					ASCEND_actionV						
+50	nousu	ascent	action	noun					ASCENT_actionN						
+52	kysyä	ask	communication	noun					ASK_actionV						
+53	parsa	asparagus	vegetable	noun	parsa		asparagus	asparagus	ASPARAGUS_object	asparagus	parsa	asparagus			
+58	munakoiso	aubergine	vegetable	noun			aubergine	eggplant	EGGPLANT_object	eggplant	muna#koiso	aubergine			
+63	kirves	axe	tool	noun	kirves		axe	axe	AXE_object	axe	kirves	axes			
+75	leipoa	bake	cooking	verb					BAKE_actionV						
+78	banaani	banana	fruit	noun	banaani		banana	banana	BANANA_object	banana	banaani	banana			
+86	haukkua	bark	Noise-animal	verb					BARK_actionV						
+102	nokka	beak	bodypart	noun					BEAK_object	beak	nokka	beak			
+103	papu	bean	vegetable	noun	papu		bean	beans	BEAN_object	bean	papu	bean			
+104	karhu	bear	animal	noun	karhu	karhu	bear	bear	BEAR_object	bear	karhu	bear			
+119	vyö	belt	clothing	noun			belt	belt	BELT_object	belt	vyö	belt			
+121	taittua	bend	Change-state	verb					BEND_actionV						
+125	polkupyörä	bicycle	vehicle	noun	polkupyörä		bicycle	bike	BICYCLE_object	bicycle	polku#pyörä	bicycle			
+130	lintu	bird	bird	noun					BIRD_object	bird	lintu	bird			
+136	vuotaa verta	bleed	action	verb					BLEED_actionV		vuotaa	bleed			
+137	sekoittua	blend 	Change-state	noun					BLEND_actionV						
+139	silmänräpäys	blink	action	noun					BLINK_actionN						
+140	räpäyttää silmiä	blink	Body-action	verb					BLINK_actionV						
+143	pusero	blouse	clothing	noun	pusero		blouse	blouse	BLOUSE_object	blouse	pusero	blouse			
+149	vene	boat	vehicle	noun	vene	vene	boat	boat	BOAT_object	boat	vene	boat			
+151	kiehua	boil	cooking	verb					BOIL_actionV						
+153	pommi	bomb	weapon	noun	pommi		bomb	bomb	BOMB_object	bomb	pommi	bomb			
+154	pommittaa	bomb	action	verb					BOMB_actionV						
+155	pommitus	bombardment	other	noun					BOMBARDMENT_actionN						
+157	kirja	book	text	noun	kirja	kirja	book	book	BOOK_object	book	kirja	book			
+162	lainata	borrow	action	verb					BORROW_actionV						
+164	pomppia	bounce	action	verb					BOUNCE_actionV		pomppia	bounce			
+169	laatikko	box	container	noun	laatikko		box	box	BOX_object	box	laatikko	box			
+179	rikkoa	break	action	verb					BREAK_actionV						
+183	hengittää	breathe	action	verb					BREATHE_actionV						
+188	0	0	vegetable	noun	parsakaali		broccoli	broccoli	BROCCOLI_object	broccoli	parsa#kaali	broccoli			
+191	0	broom	tool	noun	luuta		broom	broom	BROOM_object	broom	luuta	broom			
+192	harja	brush	tool	noun	harja		brush	brush	BRUSH_object	brush	harja	brush			
+193	harjata	brush	action	verb					BRUSH_actionV		harjata				
+201	rakentaa	build 	action	verb					BUILD_actionV						
+206	törmätä	bump 	action	verb					BUMP_actionV						
+210	palaa	burn 	nature	verb					BURN_actionV						
+212	röyhtäys	burp	action	noun					BURP_actionN						
+213	röyhtäistä	burp	Body-action	verb					BURP_actionV						
+214	0	0	vehicle	noun	bussi	bussi	bus	bus	BUS_object	bus	bussi	bus			
+221	ostaa	buy	action	verb					BUY_actionV						
+223	kaali	cabbage	vegetable	noun	kaali		cabbage	cabbage	CABBAGE_object	cabbage	kaali	cabbage			
+232	soittaa	call	action	verb					CALL_actionV						
+233	kutsu	call	artifact	noun					CALL_actionN						
+234	0	0	animal	noun	kameli		camel	camel	CAMEL_object	camel	kameli	camel			
+252	0	0	vehicle	noun	auto	auto	car	car	CAR_object	car	auto	car			
+258	kokolattiamatto	carpet	furniture	noun				carpet	CARPET_object	carpet	koko#lattia#matto	carpet			
+260	0	0	vegetable	noun	porkkana		carrot	carrot	CARROT_object	carrot	porkkana	carrot			
+261	kantaa	carry	action	verb					CARRY_actionV						
+268	0	0	animal	noun	kissa	kissa	cat	cat	CAT_object	cat	kissa	cat			
+275	0	0	vegetable	noun	kukkakaali		cauliflower	cauliflower	CAULIFLOWER_object	cauliflower	kukka#kaali	cauliflower			
+279	sisäkatto	0	furniture	noun					CEILING_object	ceiling	sisä#katto	ceiling			
+280	selleri	0	vegetable	noun	selleri		celery	celery	CELERY_object	celery	selleri	celery			
+291	0	0	furniture	noun	tuoli		chair	chair	CHAIR_object	chair	tuoli	chair			
+293	haaste	challenge	action	noun					CHALLENGE_actionN						
+300	jahdata	chase	action	verb					CHASE_actionV						
+301	jutella	chat	acton	verb					CHAT_actionV						
+302	keskustelu	chat	other	noun					CHAT_actionN						
+306	0	0	fruit	noun	kirsikka		cherry	cherry	CHERRY_object	cherry	kirsikka	cherry			
+312	kello	chime	artifact	noun					CHIME_actionN						
+313	soida	chime	action	verb					CHIME_actionV						
+316	leuka	0	bodypart	noun					CHIN_object	chin	leuka	chin			
+319	visertää	chirp	action	verb					CHIRP_actionV						
+320	viserrys	chirp	action	noun					CHIRP_actionN						
+321	taltta	0	tool	noun			chisel	chisel	CHISEL_object	chisel	taltta	chisel			
+323	pilkkoa	chop	action	verb					CHOP_actionV						
+334	helähdys	clang	action	noun					CLANG_actionN						
+335	kilauttaa	clang	action	verb					CLANG_actionV						
+337	yhteenotto	clash	action	noun					CLASH_actionN						
+338	kolista	clatter	action	verb					CLATTER_actionV						
+339	kolina	clatter	action	noun					CLATTER_actionN						
+352	takki	coat	clothing	noun	takki		coat	coat	COAT_object	coat	takki	coat			
+371	0	comb	tool	noun	kampa	kampa	comb	comb	COMB_object	comb	kampa	comb			
+372	tulla	come	action	verb					COME_actionV						
+373	käsky	command	action	noun					COMMAND_actionN						
+374	käskeä	command	action	verb					COMMAND_actionV						
+378	rakentaa	construct	action	verb					CONSTRUCT_actionV						
+379	rakennus	construction	place	noun					CONSTRUCTION_actionN						
+381	laittaa ruokaa	cook	cooking	verb					COOK_actionV						
+386	maissi	0	food	noun	maissi		corn	corn	CORN_object	corn	maissi	corn			
+390	sohva	0	furniture	noun				couch	COUCH_object	couch	sohva	couch			
+392	yskiä	cough	action	verb					COUGH_actionV		yskiä	cough			
+393	yskä	cough	other	noun					COUGH_actionN						
+397	lehmä	0	animal	noun	lehmä		cow	cow	COW_object	cow	lehmä	cow			
+400	rätistä	crackle	action	verb					CRACKLE_actionV						
+401	rätinä	crackle	other	noun					CRACKLE_actionN						
+406	törmätä	crash	action	verb					CRASH_actionV						
+407	törmäys	crash	other	noun					CRASH_actionN						
+412	hiipiä	creep	action	verb					CREEP_actionV						
+417	sorkkarauta	crowbar	tool	noun			crowbar	crowbar	CROWBAR_object		sorkka#rauta	crowbar			
+421	itkeä	cry	action	verb					CRY_actionV		itkeä	cry			
+422	itku	cry	other	noun					CRY_actionN						
+424	0	0	vegetable	noun	kurkku		cucumber	cucumber	CUCUMBER_object	cucumber	kurkku	cucumber			
+429	verhot	curtains	furniture	noun				curtains	CURTAIN_object		verho	curtains			
+431	leikata	cut	action	noun					CUT_actionV		leikata	cut			
+435	tikari	dagger	weapon	noun			dagger	dagger	DAGGER_object	dagger	tikari	dagger			
+446	vaatimus	demand	other	noun					DEMAND_actionN						
+447	vaatia	demand	action	verb					DEMAND_actionV						
+451	laskeutua	descend	action	verb					DESCEND_actionV						
+452	laskeutuminen	descent	other	noun					DESCENT_actionN						
+454	tuhota	destroy	action	verb					DESTROY_actionV						
+455	tuhoaminen	destruction	other	noun					DESTRUCTION_actionN						
+460	kuolla	die	action	verb					DIE_actionV						
+472	sukeltaa	dive	action	verb					DIVE_actionV		sukeltaa	dive			
+474	koira	dog	animal	noun	koira	koira	dog	dog	DOG_object	dog	koira	dog			
+479	lahjoittaa	donate	action	verb					DONATE_actionV						
+480	lahjoitus	donation	other	noun					DONATION_actionN						
+481	aasi	donkey	animal	noun	aasi		donkey	donkey	DONKEY_object	donkey	aasi	donkey			
+482	ovi	door	furniture	noun	ovi			door	DOOR_object	door	ovi	door			
+483	ovenkahva	doorknob	artifact	noun			doorknob	doorknob	DOORKNOB_object		oven#kahva	doorknob			
+488	raahata	drag 	action	verb					DRAG_actionV						
+492	piirtää	draw	action	verb					DRAW_actionV		piirtää	draw			
+495	mekko	dress	clothing	noun	mekko		dress	dress	DRESS_object	dress	mekko	dress			noun & verb
+498	pora	drill	tool	noun	pora	pora	drill	drill	DRILL_object		pora	drill			noun & verb
+499	porata	drill	action	verb					DRILL_actionV		porata				noun & verb
+500	juoda	drink	action	verb					DRINK_actionV	drink	juoda	drink			noun & verb
+501	ajaa	drive	action	verb					DRIVE_actionV		ajaa	drive			
+503	kuolata	drool	action	verb					DROOL_actionV						
+504	tiputtaa	drop	action	verb					DROP_actionV						
+507	ankka	duck	bird	noun	ankka	ankka	duck	duck	DUCK_object	duck	ankka	duck			
+511	rikkalapio	dustpan	tool	noun					DUSTPAN_object		rikka#lapio	dustpan			
+513	korva	ear	bodypart	noun	korva	korva	ear		EAR_object	ear	korva	ear			
+520	syödä	eat	action	verb					EAT_actionV		syödä	eat			
+524	heittää ulos	eject	action	verb					EJECT_actionV						
+525	kyynärpää	elbow	bodypart	noun					ELBOW_object	elbow	kyynärpää	elbow			
+526	norsu	elephant	animal	noun	norsu		elephant	elephant	ELEPHANT_object	elephant	norsu	elephant			
+531	tyhjentää	empty	action	verb					EMPTY_actionV						
+536	mennä sisään	enter	action	verb					ENTER_actionV						
+538	sisääntulo	entry	other	noun					ENTRY_actionN						
+542	pako	escape	other	noun					ESCAPE_actionN						
+543	paeta	escape	action	verb					ESCAPE_actionV						
+548	vaihtaa	exchange	action	verb					EXCHANGE_actionV						
+549	vaihtokauppa	exchange	other	noun					EXCHANGE_actionN						
+553	silmä	eye	bodypart	noun	silmä	silmä	eye		EYE_object	eye	silmä	eye			
+557	kasvot	face	bodypart	noun					FACE_object	face	kasvot	face			
+561	pudota	fall	action	verb					FALL_actionV						
+568	höyhen	feather	material	noun					FEATHER_object	feather	höyhen	feather			
+569	tuntea	feel	action	verb					FEEL_actionV						
+572	aita	fence	furniture	noun	aita		fence	fence	FENCE_object	fence	aita	fence			
+575	tiedosto	file	artifact	noun					FILE_object						
+576	täyttää	fill	action	verb					FILL_actionV						
+579	löytää	find	action	verb					FIND_actionV						
+580	sormi	finger	bodypart	noun	sormi	sormi	finger		FINGER_object	finger	sormi	finger			
+585	kala	fish	waterlife	noun					FISH_object	fish	kala	fish			
+586	korjata	fix	action	verb					FIX_actionV						
+589	liekki	flame	nature	noun					FLAME_actionN	flame	liekki	flame			
+590	liekehtiä	flame	action	verb					FLAME_actionV						
+593	väläyttää	flash 	action	verb					FLASH_actionV						
+597	lepatus	flicker	other	noun					FLICKER_actionN						
+598	lepattaa	flicker	action	verb					FLICKER_actionV						
+600	lattia	floor	furniture	noun					FLOOR_object	floor	lattia	floor			
+606	lentää	flying	action	verb					FLY_actionV	fly	lentää	flying			noun & verb
+608	seurata	follow	action	verb					FOLLOW_actionV						
+614	haarukka	fork	tool	noun	haarukka		fork	fork	FORK_object	fork	haarukka	fork			
+615	kettu	fox	animal	noun	kettu		fox	fox	FOX_object	fox	kettu	fox			
+626	kurtistaa kulmiaan	frown	action	verb					FROWN_actionV		paheksua	frown			
+627	kurtistus	frown	other	noun					FROWN_actionN						
+629	paistaa	fry	action	verb					FRY_actionV						
+633	turkki	fur	clothing	noun					FUR_object	fur	turkki	fur			
+643	portti	gate	furniture	noun	portti		gate	gate	GATE_object	gate	portti	gate			
+649	saada	get	action	verb					GET_actionV						
+654	kirahvi	giraffe	animal	noun	kirahvi		giraffe	giraffe	GIRAFFE_object	giraffe	kirahvi	giraffe			
+656	antaa	give	action	verb					GIVE_actionV						
+660	käsine	glove	clothing	noun	käsine		gloves	gloves	GLOVE_object	glove	käsine	glove			
+661	loistaa	glow	action	verb					GLOW_actionV						
+662	loiste	glow	other	noun					GLOW_actionN						
+664	mennä	go 	action	verb					GO_actionV						
+665	vuohi	goat	animal	noun	vuohi		goat	goat	GOAT_object	goat	vuohi	goat			
+676	viinirypäle	grape	fruit	noun	viinirypäle		grape	grape	GRAPE_object	grape	rypäle	grape			
+677	greippi	grapefruit	fruit	noun	greippi		grapefruit	grapefruit	GRAPEFRUIT_object	grapefruit	greippi	grapefruit			typo in AaltoProd
+686	tervehtiä	greet 	action	verb					GREET_actionV						
+689	grillata	grill	action	verb					GRILL_actionV						
+690	virnistää	grin	action	verb					GRIN_actionV						
+695	murina	growl	other	noun					GROWL_actionN						
+696	murista	growl	action	verb					GROWL_actionV						
+701	ase	gun	weapon	noun	ase		gun	gun	GUN_object	gun	ase	gun			
+705	hiukset	hair	bodypart	noun	hiukset		hair		HAIR_object	hair	hius	hair			
+707	pysähtyä	halt	action	verb					HALT_actionV						
+710	vasara	hammer	tool	noun	vasara		hammer	hammer	HAMMER_object	hammer	vasara	hammer			noun & verb
+711	vasaroida	hammer	action	verb					HAMMER_actionV		vasaroida				noun & verb
+713	käsi	hand	bodypart	noun	käsi	käsi			HAND_object	hand	käsi	hand			
+724	hattu	hat	clothing	noun					HAT_object		hattu	hat			
+725	kirves	hatchet	tool	noun			hatchet	hatchet	HATCHET_object		retki#kirves	hatchet			
+728	pää	head	bodypart	noun	pää				HEAD_object	head	pää	head			
+730	kuulla	hear 	action	verb					HEAR_actionV						
+735	helikopteri	helicopter	vehicle	noun	helikopteri		helicopter	helicopter	HELICOPTER_object	helicopter	helikopteri	helicopter			
+741	hikka	hiccup	other	noun					HICCUP_actionN						
+742	nikotella	hiccup	action	verb					HICCUP_actionV						
+748	lyödä	hit	action	verb					HIT_actionV						
+749	isku	hit	other	noun					HIT_actionN						
+751	kuokka	hoe	tool	noun	kuokka		hoe	hoe	HOE_object	hoe	kuokka	hoe			noun & verb
+752	kuokkia	hoe	action	verb					HOE_actionV		kuokkia				noun & verb
+754	pidellä	hold	action	verb					HOLD_actionV						
+762	hyppiä	hop	action	verb					HOP_actionV		hyppiä	hop			
+765	hevonen	horse	animal	noun	hevonen	hevonen	horse	horse	HORSE_object	horse	hevonen	horse			
+791	hengittää sisään	inhale	action	verb					INHALE_actionV						
+792	ruiskuttaa	inject	action	verb					INJECT_actionV		ruiskuttaa	inject			
+798	kutsua	invite	action	verb					INVITE_actionV						
+803	kutina	itch	other	noun					ITCH_actionN						
+804	kutista	itch	action	verb					ITCH_actionV						
+818	hölkätä	jog	action	verb					JOG_actionV						
+832	potkaista	kick	action	verb					KICK_actionV		potkaista	kick			
+834	tappaa	kill	action	verb					KILL_actionV						
+843	polvi	knee	bodypart	noun					KNEE_object	knee	polvi	knee			
+845	veitsi	knife	weapon	noun	veitsi		knife	knife	KNIFE_object	knife	veitsi	knife			homonym
+848	koputtaa	knock	action	verb					KNOCK_actionV		koputtaa	knock			
+849	koputus	knock	other	noun					KNOCK_actionN						
+867	johtaa	lead	action	verb					LEAD_actionV						
+869	jättää	leave	action	verb					LEAVE_actionV						
+871	jalka	leg	bodypart	noun	jalka	jalka	leg		LEG_object	leg	jalka	leg			
+873	sitruuna	lemon	fruit	noun	sitruuna		lemon	lemon	LEMON_object	lemon	sitruuna	lemon			
+875	lainata	lend	action	verb					LEND_actionV						
+876	leopardi	leopard	animal	noun			leopard	leopard	LEOPARD_object	leopard	leopardi	leopard			
+879	lehtisalaatti	lettuce	vegetable	noun			lettuce	lettuce	LETTUCE_object	lettuce	lehti#salaatti	lettuce			
+883	nuolla	lick	action	verb					LICK_actionV		nuolla	lick			
+884	nostaa	lift	action	verb					LIFT_actionV						
+889	lime	lime	fruit	noun	lime		lime	lime	LIME_object	lime	lime	lime			
+891	ontua	limp	action	verb					LIMP_actionV						
+894	leijona	lion	animal	noun	leijona	leijona	lion	lion	LION_object	lion	leijona	lion			
+895	huuli	lip	bodypart	noun	huulet	huulet	lips		LIPS_object	lip	huuli	lip			
+900	kuunnella	listen	action	verb					LISTEN_actionV		kuunnella	listen			
+905	laina 	loan	other	noun					LOAN_actionN						
+906	lainata	loan	action	verb					LOAN_actionV						
+912	katsella	look	action	noun					LOOK_actionV		katsella	look			
+914	menettää	lose	action	verb					LOSE_actionV						
+915	menetys	loss	other	noun					LOSS_actionN						
+930	tehdä	make	action	verb					MAKE_actionV						
+940	marssia	march	action	verb					MARCH_actionV		marssia	march			
+961	naukua	meow	action	verb					MEOW_actionV						
+962	naukuminen	meow	other	noun					MEOW_actionN						
+981	tumppu	mitten	clothing	noun					MITTEN_object		tumppu	mitten			
+983	sekoittaa	mix 	action	verb					MIX_actionV						
+1000	moottoripyörä	motorcycle	vehicle	noun			motorcycle	motorcycle	MOTORCYCLE_object	motorcycle	prätkä	motorcycle			
+1003	tietokonehiiri	mouse_computer	appliance	noun				mouse_(computer)	MOUSE_object		tieto#kone#hiiri	computer_mouses			
+1004	suu	mouth	bodypart	noun	suu	suu			MOUTH_object	mouth	suu	mouth			
+1006	liikkua	move	action	verb					MOVE_actionV						
+1010	murhata	murder	action	verb					MURDER_actionV						
+1011	murha 	murder	other	noun					MURDER_actionN						
+1014	sieni	mushroom	vegetable	noun	sieni		mushroom	mushroom	MUSHROOM_object	mushroom	sieni	mushroom			
+1023	kaula	neck	bodypart	noun					NECK_object	neck	kaula	neck			
+1038	nenä	nose	bodypart	noun	nenä	nenä	nose		NOSE_object	nose	nenä	nose			
+1041	huomata	notice	action	verb					NOTICE_actionV						
+1052	röhkiä	oink	action	verb					OINK_actionV						
+1053	röhkäisy	oink	other	noun					OINK_actionN						
+1055	sipuli	onion	vegetable	noun	sipuli		onion	onions	ONION_object	onion	sipuli	onion			
+1057	appelsiini	orange	fruit	noun			orange	orange	ORANGE_object		appelsiini	orange			
+1071	maalata	paint	action	verb					PAINT_actionV	paint	maa#lata	paint			
+1095	tassu	paw 	bodypart	noun					PAW_object						
+1097	maksaa	pay	action	verb					PAY_actionV						
+1098	herne	pea	vegetable	noun			peas	peas	PEA_object	pea	herne	pea			
+1099	persikka	peach	fruit	noun	persikka		peach	peach	PEACH_object	peach	persikka	peach			
+1102	päärynä	pear	fruit	noun	päärynä		pear	pear	PEAR_object	pear	päärynä	pear			
+1105	polkea	pedal	action	verb					PEDAL_actionV						
+1109	kynä	pen	tool	noun			pen	pen	PEN_object	pen	kynä	pen			
+1110	lyijykynä	pencil	tool	noun			pencil	pencil	PENCIL_object	pencil	lyijy#kynä	pencil			
+1115	pippuri	pepper	food	noun				pepper	PEPPER_object	pepper	pippuri	pepper			
+1134	sika	pig	animal	noun	sika		pig	pig	PIG_object	pig	sika	pig			
+1140	ananas	pineapple	fruit	noun	ananas		pineapple	pineapple	PINEAPPLE_object	pineapple	ananas	pineapple			
+1148	asettaa	place	action	verb					PLACE_actionV						
+1160	pyyntö	plea	other	noun					PLEA_actionN						
+1161	pyytää	plead	action	verb					PLEAD_actionV						
+1162	pihdit	pliers	tool	noun	pihdit		pliers	pliers	PLIERS_object	pliers	pihdit	pliers			
+1165	luumu	plum	fruit	noun			plum	plum	PLUM_object	plum	luumu	plum			
+1184	peruna	potato	vegetable	noun	peruna		potato	potato	POTATO_object	potato	peruna	potato			
+1186	hakata	pound	action	verb					POUND_actionV		hakata	pound			
+1187	kaataa	pour	action	verb					POUR_actionV						
+1193	saarnata	preach	action	verb					PREACH_actionV						
+1194	painaa	press	action	verb					PRESS_actionV		painaa	press			
+1208	veto	pull	other	noun					PULL_actionN						
+1209	vetää	pull	action	verb					PULL_actionV						
+1210	kurpitsa	pumpkin	vegetable	noun	kurpitsa		pumpkin	pumpkin	PUMPKIN_object	pumpkin	kurpitsa	pumpkin			
+1211	lyödä	punch	action	verb					PUNCH_actionV						
+1216	työntö	push	other	noun					PUSH_actionN						
+1217	työntää	push	action	verb					PUSH_actionV						
+1218	asettaa	put	action	verb					PUT_actionV						
+1226	kani	rabbit	animal	noun	kani		rabbit	rabbit	RABBIT_object	rabbit	kani	rabbit			
+1233	lautta	raft	vehicle	noun			raft	raft	RAFT_object		lautta	raft			
+1237	rusina	raisin	food	noun			raisin	raisin	RAISIN_object	raisins	rusina	raisin			
+1238	harava	rake	tool	noun	harava		rake	rake	RAKE_object	rake	harava	rake	haravoida	RAKE_actionV	
+1239	haravoida	rake	action	verb					RAKE_actionV		haravoida		harava	RAKE_object	
+1242	vadelma	raspberry	fruit	noun	vadelma		raspberry	raspberry	RASPBERRY_object	raspberry	vadelma	raspberry			
+1245	ravistella	rattle	action	verb					RATTLE_actionV						
+1249	partahöylä	razor	tool	noun			razor	razor	RAZOR_object	razor	parta#höylä	razor			
+1250	lukea	read	action	verb					READ_actionV						
+1253	vastaanottaa	receive	action	verb					RECEIVE_actionV						
+1257	korjata	repair	action	verb					REPAIR_actionV						
+1258	korjaus	repair	other	noun					REPAIR_actionN						
+1261	pyytää	request	action	verb					REQUEST_actionV						
+1262	pyyntö	request	other	noun					REQUEST_actionN						
+1265	oksentaa	retch	action	noun					RETCH_actionV						
+1266	palautus	return	other	noun					RETURN_actionN						
+1267	palauttaa	return	action	verb					RETURN_actionV						
+1275	ratsastaa	ride	action	verb					RIDE_actionV		ratsastaa	ride			
+1278	nousta	rise	action	verb					RISE_actionV						
+1281	paahtaa	roast	action	verb					ROAST_actionV						
+1293	katto	roof	furniture	noun					ROOF_object	roof	katto	roof			
+1299	matto	rug	furniture	noun					RUG_object	rug	matto	rug			
+1301	juosta	run	action	verb					RUN_actionV		juosta	run			
+1321	saha	saw	tool	noun	saha	saha	saw		SAW_object	saw	saha	saw			
+1322	sahata	saw	action	verb					SAW_actionV		sahata				
+1323	sanoa	say	action	verb					SAY_actionV						
+1330	huivi	scarf	clothing	noun	huivi		scarf	scarf	SCARF_object	scarf	huivi	scarf			
+1333	sakset	scissors	tool	noun	sakset	sakset	scissors	scissors	SCISSORS_object	scissors	sakset	scissors			
+1336	kirkaisu	scream	other	noun					SCREAM_actionN						
+1337	kirkua	scream	action	verb					SCREAM_actionV						
+1338	kirskua	screech	action	verb					SCREECH_actionV						
+1339	kirskunta	screech	other	noun					SCREECH_actionN						
+1341	ruuvimeisseli	screwdriver	tool	noun			screwdriver	screwdriver	SCREWDRIVER_object	screwdriver	ruuvi#meisseli	screwdriver			
+1349	istuin	seat	furniture	noun					SEAT_object	seat	istuin	seat			
+1352	nähdä	see 	action	verb					SEE_actionV						
+1354	myydä	sell	action	verb					SELL_actionV						
+1355	lähettää	send	action	verb					SEND_actionV						
+1356	tuntea	sense	action	verb					SENSE_actionV						
+1359	ravistaa	shake	action	verb					SHAKE_actionV						
+1361	sheivata	shave	action	verb					SHAVE_actionV		sheivata	shave			
+1364	lammas	sheep	animal	noun	lammas	lammas	sheep	sheep	SHEEP_object	sheep	lammas	sheep			
+1367	kilpi	shield	weapon	noun			shield	shield	SHIELD_object		kilpi	shield			
+1368	loiste	shine	other	noun					SHINE_actionN						
+1369	loistaa	shine	action	verb					SHINE_actionV						
+1370	laiva	ship	vehicle	noun	laiva	laiva	ship	ship	SHIP_object	ship	laiva	ship			
+1371	paita	shirt	clothing	noun	paita		shirt	shirt	SHIRT_object	shirt	paita	shirt			
+1372	kenkä	shoe	clothing	noun	kenkä		shoes	shoes	SHOE_object	shoe	kenkä	shoe			
+1377	olkapää	shoulder	bodypart	noun					SHOULDER_object	shoulder	olka#pää	shoulder			noun & verb
+1378	huutaa	shout	action	verb					SHOUT_actionV		huutaa	shout			noun & verb
+1379	huuto	shout	other	noun					SHOUT_actionN						
+1380	lapio	shovel	tool	noun	lapio	lapio	shovel	shovel	SHOVEL_object	shovel	lapio	shovel			
+1381	lapioida	shovel	action	noun					SHOVEL_actionV		lapioida				
+1384	huokaus	sigh	other	noun					SIGH_actionN						
+1385	huokaista	sigh	action	verb					SIGH_actionV						
+1387	laulaa	sing	action	verb					SING_actionV						
+1389	upota	sink	action	verb					SINK_actionV						
+1390	istua	sit	action	verb					SIT_actionV		istua	sit			
+1395	liukua	skid	action	verb					SKID_actionV						
+1398	hame	skirt	clothing	noun	hame		skirt	skirt	SKIRT_object	skirt	hame	skirt			
+1403	läpsäistä	slap	action	verb					SLAP_actionV		läpsäistä	slap			
+1409	liukua	slide	action	verb					SLIDE_actionV		liukua				
+1415	murskata	smash	action	verb					SMASH_actionV		murskata	smash			noun & verb
+1417	hymyillä	smile	action	verb					SMILE_actionV		hymyillä				noun & verb
+1419	tupakoida	smoke	action	verb					SMOKE_actionV		tupakoida				
+1423	aivastaa	sneeze	action	verb					SNEEZE_actionV		aivastaa	sneeze			
+1424	kuorsata	snore	action	verb					SNORE_actionV		kuorsata	snore			
+1427	sukka	sock	clothing	noun	sukka		sock	socks	SOCK_object	sock	sukka	sock			
+1449	sylkeä	spit	action	verb					SPIT_actionV		sylkeä	spit			
+1452	lusikka	spoon	tool	noun	lusikka	lusikka	spoon	spoon	SPOON_object	spoon	lusikka	spoon			
+1478	pysähtyä	stop	action	verb					STOP_actionV		pysähtyä	stop			väärinpilkottu fin coprus
+1486	mansikka	strawberry	fruit	noun	mansikka		strawberry	strawberry	STRAWBERRY_object	strawberry	mansikka	strawberry			
+1508	joutsen	swan	bird	noun			swan	swan	SWAN_object		joutsen	swan			
+1510	villapaita	sweater	clothing	noun	villapaita		sweater	sweater	SWEATER_object	sweater	villa#paita	sweater			
+1513	uida	swim	action	verb					SWIM_actionV		uida	swim			
+1516	miekka	sword	weapon	noun	miekka		sword	sword	SWORD_object	sword	miekka	sword			
+1527	puhua	talk	action	verb					TALK_actionV		puhua	talk			
+1535	maistaa	taste	action	verb					TASTE_actionV		maistaa	taste			
+1541	hampaat	teeth	bodypart	noun					TEETH_object	teeth		teeth			
+1558	heittää	throw	action	verb					THROW_actionV		heittää	throw			
+1559	peukalo	thumb	bodypart	noun	peukalo		thumb		THUMB_object	thumb	peukalo	thumb			
+1562	kutittaa	tickle	action	verb					TICKLE_actionV		kutittaa	tickle			
+1564	tiikeri	tiger	animal	noun	tiikeri		tiger	tiger	TIGER_object	tiger	tiikeri	tiger			
+1573	varvas	toe	bodypart	noun	varvas	varvas	toe		TOE_object	toe	varvas	toe			
+1580	hammasharja	toothbrush	tool	noun					TOOTHBRUSH_object	toothbrush	hammas#harja	toothbrush			
+1585	koskettaa	touch	action	verb					TOUCH_actionV		koskettaa	touch			
+1592	0	train	vehicle	noun	juna	juna	train	train	TRAIN_object	train	juna	train			
+1597	kolmipyöräinen	tricycle	vehicle	noun			tricycle	tricycle	TRICYCLE_object		kolmi#pyörä	tricycle			
+1602	housut	trousers	clothing	noun			trousers	trousers	PANTS_object	pants	housu	trousers			myös muurauskauha
+1605	rekka	0	vehicle	noun	rekka	rekka	truck	truck	TRUCK_object	truck	rekka	truck			
+1615	pinsetit	tweezers	tool	noun	pinsetit		tweezers		TWEEZERS_object	tweezers	pinsetit	tweezers			
+1631	pakettiauto	van	vehicle	noun	pakettiauto		van	van	VAN_object	van	paketti#auto	van			
+1636	liivi	0	clothing	noun				vest	VEST_object	vest	liivi	vest			
+1643	kahlata	wade	action	verb					WADE_actionV		kahlata	wade			
+1646	kävellä	walk	action	verb					WALK_actionV		kävellä	walk			
+1654	pestä	wash	action	verb					WASH_actionV		pestä	wash			
+1658	katsoa	watch	action	verb					WATCH_actionV		katsoa				
+1660	0	0	vegetable	noun	vesimeloni		watermelon		WATERMELON_object	watermelon	vesi#meloni	watermelon			
+1689	iskeä silmää	wink	action	verb					WINK_actionV		räpyttää				
+1702	jakoavain	0	tool	noun				wrench	WRENCH_object	wrench	jako#avain	wrench			
+1703	kirjoittaa	write	action	verb					WRITE_actionV		kirjoittaa	write			
+1709	haukotella	yawn	action	verb					YAWN_actionV		haukotella	yawn			
+1714	seepra	zebra	animal	noun	seepra		zebra	zebra	ZEBRA_object	zebra	seepra	zebra			
