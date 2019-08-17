@@ -6,8 +6,8 @@
     123,
     1644
    ],
-   "tensorPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/aaltonorms/aalto85/vectors.tsv",
-   "metadataPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/aaltonorms/aalto85/metadata.tsv"
+   "tensorPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/aalto85/vectors.tsv",
+   "metadataPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/aalto85/metadata.tsv"
   }
  ]
 }
