@@ -8,60 +8,6 @@
    ],
    "tensorPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/aaltonorms/aalto85/vectors.tsv",
    "metadataPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/aaltonorms/aalto85/metadata.tsv"
-  },
-  {
-   "tensorName": "aaltoprod",
-   "tensorShape": [
-    298,
-    1644
-   ],
-   "tensorPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/aaltonorms/aaltoprod/vectors.tsv",
-   "metadataPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/aaltonorms/aaltoprod/metadata.tsv"
-  },
-  {
-   "tensorName": "cmu",
-   "tensorShape": [
-    1000,
-    229
-   ],
-   "tensorPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/aaltonorms/cmu/vectors.tsv",
-   "metadataPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/aaltonorms/cmu/metadata.tsv"
-  },
-  {
-   "tensorName": "cslb",
-   "tensorShape": [
-    638,
-    2725
-   ],
-   "tensorPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/aaltonorms/cslb/vectors.tsv",
-   "metadataPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/aaltonorms/cslb/metadata.tsv"
-  },
-  {
-   "tensorName": "vinson",
-   "tensorShape": [
-    395,
-    1029
-   ],
-   "tensorPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/aaltonorms/vinson/vectors.tsv",
-   "metadataPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/aaltonorms/vinson/metadata.tsv"
-  },
-  {
-   "tensorName": "w2v_eng",
-   "tensorShape": [
-    1435,
-    300
-   ],
-   "tensorPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/aaltonorms/w2v_eng/vectors.tsv",
-   "metadataPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/aaltonorms/w2v_eng/metadata.tsv"
-  },
-  {
-   "tensorName": "w2v_fin",
-   "tensorShape": [
-    1419,
-    300
-   ],
-   "tensorPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/aaltonorms/w2v_fin/vectors.tsv",
-   "metadataPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/aaltonorms/w2v_fin/metadata.tsv"
   }
  ]
 }
