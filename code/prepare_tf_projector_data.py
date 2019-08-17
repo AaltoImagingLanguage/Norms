@@ -5,8 +5,7 @@ metadata_fname = '/m/nbe/project/aaltonorms/data/{name}/metadata.tsv'
 vocab_fname = '/m/nbe/project/aaltonorms/data/{name}/vocab.csv'
 vectors_fname = '/m/nbe/project/aaltonorms/data/{name}/vectors.csv'
 html_path = '../data'
-url = 'https://users.aalto.fi/~vanvlm1/aaltonorms'
-#url = 'https://raw.githubusercontent.com/wmvanvliet/aaltonorms/master'
+url = 'https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data'
 projector_config_fname = html_path + '/projector_config.json'
 
 supernorms = pd.read_excel('/m/nbe/project/aaltonorms/data/SuperNormList.xls', 'Summary', index_col=0)
