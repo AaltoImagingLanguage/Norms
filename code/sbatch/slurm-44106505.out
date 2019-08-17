@@ -1,0 +1,12 @@
+srun: error: skl48: task 0: Exited with exit code 2
+srun: Terminating job step 44106505.0
+srun: error: skl48: task 0: Exited with exit code 2
+srun: Terminating job step 44106505.1
+srun: error: skl48: task 0: Exited with exit code 2
+srun: Terminating job step 44106505.2
+srun: error: skl48: task 0: Exited with exit code 2
+srun: Terminating job step 44106505.3
+srun: error: skl48: task 0: Exited with exit code 2
+srun: Terminating job step 44106505.4
+srun: error: skl48: task 0: Exited with exit code 2
+srun: Terminating job step 44106505.5
