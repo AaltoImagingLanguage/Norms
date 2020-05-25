@@ -19,15 +19,6 @@
    "metadataPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/aaltoprod/metadata.tsv"
   },
   {
-   "tensorName": "cmu",
-   "tensorShape": [
-    1000,
-    229
-   ],
-   "tensorPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/cmu/vectors.tsv",
-   "metadataPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/cmu/metadata.tsv"
-  },
-  {
    "tensorName": "cslb",
    "tensorShape": [
     638,
