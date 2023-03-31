@@ -37,60 +37,6 @@
    "metadataPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/aaltoprod/metadata_subset.tsv"
   },
   {
-   "tensorName": "cmu",
-   "tensorShape": [
-    1000,
-    229
-   ],
-   "tensorPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/cmu/vectors.tsv",
-   "metadataPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/cmu/metadata.tsv"
-  },
-  {
-   "tensorName": "cmu-subset",
-   "tensorShape": [
-    1000,
-    229
-   ],
-   "tensorPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/cmu/vectors_subset.tsv",
-   "metadataPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/cmu/metadata_subset.tsv"
-  },
-  {
-   "tensorName": "cslb",
-   "tensorShape": [
-    638,
-    2725
-   ],
-   "tensorPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/cslb/vectors.tsv",
-   "metadataPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/cslb/metadata.tsv"
-  },
-  {
-   "tensorName": "cslb-subset",
-   "tensorShape": [
-    638,
-    2725
-   ],
-   "tensorPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/cslb/vectors_subset.tsv",
-   "metadataPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/cslb/metadata_subset.tsv"
-  },
-  {
-   "tensorName": "vinson",
-   "tensorShape": [
-    395,
-    1029
-   ],
-   "tensorPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/vinson/vectors.tsv",
-   "metadataPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/vinson/metadata.tsv"
-  },
-  {
-   "tensorName": "vinson-subset",
-   "tensorShape": [
-    395,
-    1029
-   ],
-   "tensorPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/vinson/vectors_subset.tsv",
-   "metadataPath": "https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/master/data/vinson/metadata_subset.tsv"
-  },
-  {
    "tensorName": "w2v_eng",
    "tensorShape": [
     1435,
