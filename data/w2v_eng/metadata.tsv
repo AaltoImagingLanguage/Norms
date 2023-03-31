@@ -125,7 +125,7 @@ board	taulu	furniture	noun
 boat	vene	vehicle	noun
 body	ruumis	bodypart	noun
 bolts	pultti	tool	noun
-bomb	pommi	weapon	noun
+bomb	pommittaa	action	verb
 bone	luu	bodypart	noun
 book	kirja	tool	noun
 bookcase	kirjahylly	furniture	noun
@@ -397,7 +397,7 @@ dove	kyyhky	bird	noun
 dragonfly	sudenkorento	insect	noun
 drain	lattiakaivo	furniture	noun
 drapes	verhot	furniture	noun
-dream	uni	abstract_mid	noun
+dream	haave	abstract_high	noun
 dress	mekko	clothing	noun
 dresser	astiakaappi	furniture	noun
 dressing gown	aamutakki	clothing	noun
@@ -685,7 +685,7 @@ kite	leija	toy	noun
 kitten	kissanpentu	animal	noun
 kiwi	kiivi	fruit	noun
 knee	polvi	bodypart	noun
-knife	veitsi	tool	noun
+knife	puukko	tool	noun
 brother	veli	human	noun
 knob	nuppi	tool	noun
 knowledge	tieto	abstract_high	noun
@@ -1139,7 +1139,7 @@ shop	myymälä	place	noun
 shore	ranta	nature	noun
 shotgun	haulikko	weapon	noun
 shoulder	olkapää	bodypart	noun
-shovel	lapio	tool	noun
+shovel	lapioida	action	noun
 shrimp	katkarapu	waterlife	noun
 sidewalk	jalkakäytävä	place	noun
 sign	kyltti	text	noun
@@ -1262,7 +1262,7 @@ table	pöytä	furniture	noun
 tablespoon	ruokalusikka	tool	noun
 tack	ommel	medicine	noun
 taco	taco	food	noun
-tail	häntä	body/animal	noun
+tail	häntä	bodypart	noun
 tambourine	tamburiini	instrument	noun
 tangerine	tangeriini	fruit	noun
 tap	hana	furniture	noun
@@ -1409,7 +1409,7 @@ windmill	tuulimylly	place	noun
 window	ikkuna	furniture	noun
 windshield	tuulilasi	artifact	noun
 wine	viini	drink	noun
-wing	siipi	body/animal	noun
+wing	siipi	bodypart	noun
 wire	johto	appliance	noun
 wolf	susi	animal	noun
 woman	nainen	human	noun

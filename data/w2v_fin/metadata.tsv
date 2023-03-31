@@ -1248,7 +1248,7 @@ table	pöytä	furniture	noun
 tablespoon	ruokalusikka	tool	noun
 tack	ommel	medicine	noun
 taco	taco	food	noun
-tail	häntä	body/animal	noun
+tail	häntä	bodypart	noun
 tambourine	tamburiini	instrument	noun
 tangerine	tangeriini	fruit	noun
 tap	hana	furniture	noun
@@ -1393,7 +1393,7 @@ windmill	tuulimylly	place	noun
 window	ikkuna	furniture	noun
 windshield	tuulilasi	artifact	noun
 wine	viini	drink	noun
-wing	siipi	body/animal	noun
+wing	siipi	bodypart	noun
 wire	johto	appliance	noun
 wolf	susi	animal	noun
 woman	nainen	human	noun

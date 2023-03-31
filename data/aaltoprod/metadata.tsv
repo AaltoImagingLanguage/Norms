@@ -265,7 +265,7 @@ sword	miekka	tool	noun
 symptom	oire	abstract_mid	noun
 system	järjestelmä	abstract_high	noun
 table	pöytä	furniture	noun
-tail	häntä	body/animal	noun
+tail	häntä	bodypart	noun
 teacher	opettaja	human	noun
 team	joukkue	abstract_mid	noun
 temple	temppeli	building	noun
@@ -291,7 +291,7 @@ weight	paino	abstract_mid	noun
 wife	vaimo	human	noun
 will	tahto	abstract_high	noun
 window	ikkuna	furniture	noun
-wing	siipi	body/animal	noun
+wing	siipi	bodypart	noun
 wolf	susi	animal	noun
 woman	nainen	human	noun
 work	teos	abstract_mid	noun

@@ -466,7 +466,7 @@ raindrops	sadepisarat	nature	noun
 bluebird	sinikka	bird	noun
 map	kartta	artifact	noun
 meal	ateria	food	noun
-tail	häntä	body/animal	noun
+tail	häntä	bodypart	noun
 gym	kuntosali	place	noun
 saxophone	saksofoni	instrument	noun
 mailbox	postilaatikko	container	noun
@@ -894,7 +894,7 @@ breath	hengitys	abstract_low	noun
 pancake	pannukakku	food	noun
 utensil	työväline	tool	noun
 heel	kantapää	bodypart	noun
-wing	siipi	body/animal	noun
+wing	siipi	bodypart	noun
 village	kylä	building	noun
 chip	siru	artifact	noun
 womb	kohtu	bodypart	noun
