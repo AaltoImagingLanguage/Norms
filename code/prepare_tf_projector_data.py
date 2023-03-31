@@ -9,11 +9,13 @@ url = 'https://raw.githubusercontent.com/AaltoImagingLanguage/SemanticNorms/mast
 projector_config_fname = html_path + '/projector_config.json'
 
 supernorms = pd.read_excel('/m/nbe/project/aaltonorms/data/SuperNormList.xls', 'Summary', index_col=0)
-subset = supernorms.dropna(subset=['aaltoprod', 'cslb', 'mcrae', 'vinson', 'cmu', 'w2v_fin', 'w2v_eng'])
+#subset = supernorms.dropna(subset=['aaltoprod', 'cslb', 'mcrae', 'vinson', 'cmu', 'w2v_fin', 'w2v_eng'])
+subset = supernorms.dropna(subset=['aaltoprod', 'aalto85', 'w2v_fin', 'w2v_eng'])
 
 projector_config = dict(embeddings=[])
 
-for name in ['aalto85', 'aaltoprod', 'cmu', 'cslb', 'vinson', 'w2v_eng', 'w2v_fin']:
+#for name in ['aalto85', 'aaltoprod', 'cmu', 'cslb', 'vinson', 'w2v_eng', 'w2v_fin']:
+for name in ['aalto85', 'aaltoprod', 'w2v_eng', 'w2v_fin']:
     vocab = pd.read_csv(vocab_fname.format(name=name), sep='\t', header=None)
     vocab.columns = [name]
     metadata = vocab.join(supernorms.set_index(name)[['fin_name', 'eng_name', 'category', 'word_class']],
