@@ -10,11 +10,13 @@ import os.path
 import argparse
 import pandas as pd
 import numpy as np
-from matplotlib import pyplot as plt
 from sklearn.linear_model import RidgeCV, LinearRegression
 from sklearn.model_selection import LeaveOneOut
 from scipy.spatial import distance
 from scipy.io import savemat
+
+os.environ['OMP_NUM_THREADS'] = '1'
+os.environ['MKL_NUM_THREADS'] = '1'
 
 
 parser = argparse.ArgumentParser(description='Learn a mapping from one norm \
@@ -25,27 +27,25 @@ parser.add_argument('--reg', action='store_true', help='Whether to use \
                     regularization')
 args = parser.parse_args()
 
-print('Learning mapping from', os.path.basename(args.norm1), 'to', 
+print('Learning mapping from', os.path.basename(args.norm1), 'to',
       os.path.basename(args.norm2))
 
-outpath = '/m/nbe/scratch/aaltonorms/results/zero_shot/'
+# outpath = '/m/nbe/scratch/aaltonorms/results/zero_shot/'
+outpath = './results/'
 normpath = '/m/nbe/scratch/aaltonorms/data/'
 norms = ["aaltoprod", "cslb", "vinson", "w2v_eng", "w2v_fin"]
-analysis = args.norm1 + "_" + args.norm2 
-	
-#os.mkdir(outpath + analysis)
+analysis = args.norm1 + "_" + args.norm2
 
-
+os.makedirs(outpath + analysis, exist_ok=True)
 
 #Determine output filename
 if args.reg == None:
     output = outpath + analysis + "/leave1out_results.mat"
 else:
     output = outpath + analysis + "/leave1out_reg_results.mat"
-    
+
 #Get data from the big excel file
-LUT = pd.read_excel('/m/nbe/scratch/aaltonorms/data/SuperNormList.xls', 
-                    encoding='utf-8', 
+LUT = pd.read_excel('/m/nbe/scratch/aaltonorms/data/SuperNormList.xls',
                     header=0, index_col=0)
 
 #Exclude homonyms, verbs and abstract words
@@ -53,24 +53,24 @@ LUT = LUT[LUT['action_words']==0]
 LUT = LUT[LUT['category']!="abstract_mid"]
 LUT = LUT[LUT['category']!="abstract_high"]
 
-norm1_vocab = pd.read_csv(normpath + args.norm1 + '/' + 'vocab.csv', 
-                          encoding='utf-8', 
-                         delimiter = '\t', header=None, index_col=0)
+norm1_vocab = pd.read_csv(normpath + args.norm1 + '/' + 'vocab.csv',
+                          encoding='utf-8',
+                          delimiter = '\t', header=None, index_col=0)
 
-norm2_vocab = pd.read_csv(normpath + args.norm2 + '/' + 'vocab.csv', 
-                          encoding='utf-8', 
-                         delimiter = '\t', header=None, index_col=0)
+norm2_vocab = pd.read_csv(normpath + args.norm2 + '/' + 'vocab.csv',
+                          encoding='utf-8',
+                          delimiter = '\t', header=None, index_col=0)
 
-norm1_vecs = pd.read_csv(normpath + args.norm1 + '/' + 'vectors.csv', 
-                         encoding='utf-8', delimiter = '\t', 
+norm1_vecs = pd.read_csv(normpath + args.norm1 + '/' + 'vectors.csv',
+                         encoding='utf-8', delimiter = '\t',
                          header=None, index_col=None)
 
-norm2_vecs = pd.read_csv(normpath + args.norm2 + '/' + 'vectors.csv', 
-                         encoding='utf-8', 
+norm2_vecs = pd.read_csv(normpath + args.norm2 + '/' + 'vectors.csv',
+                         encoding='utf-8',
                          delimiter = '\t', header=None, index_col=None)
 
 picks = LUT[LUT[norms[0]].notnull() & LUT[norms[1]].notnull() &
-            LUT[norms[2]].notnull() & LUT[norms[3]].notnull() & 
+            LUT[norms[2]].notnull() & LUT[norms[3]].notnull() &
             LUT[norms[4]].notnull()]
 
 print("Number of words: " + str(len(picks)))
@@ -117,7 +117,9 @@ confusion_matrix[np.arange(num_words), dist.argmin(axis=1)] = 1
 results = {
     'overall_accuracy': accuracy,
     'distance_matrix': dist,
-    'confusion_matrix': confusion_matrix
+    'confusion_matrix': confusion_matrix,
+    'words': picks['eng_name'].values,
+    'categories': picks['category'].values,
 }
 
 savemat(output, results)

@@ -6,40 +6,49 @@ Learn a mapping from one norm dataset to another and evaluate its fit.
 Authors: Marijn van Vliet <w.m.vanvliet@gmail.com>
 Sasa Kivisaari
 """
+import os
 import os.path
 import argparse
 import pandas as pd
-from matplotlib import pyplot as plt
 import numpy as np
 from sklearn.linear_model import RidgeCV, LinearRegression
 from sklearn.model_selection import LeaveOneOut
 from scipy.spatial import distance
 from scipy.io import savemat
+from tqdm import tqdm
+
+os.environ['OMP_NUM_THREADS'] = '1'
+os.environ['MKL_NUM_THREADS'] = '1'
 
 
 parser = argparse.ArgumentParser(description='Learn a mapping from one norm \
                                  dataset to another')
 parser.add_argument('norm1', type=str, help='Norm data set 1')
 parser.add_argument('norm2', type=str, help='Norm data set 2')
-parser.add_argument('-i', '--iteration', metavar='N', type=int, default=1,
-                    help='The iteration (as a number). This number is recorded in the output .mat file. Defaults to 1.')
-parser.add_argument('-o', '--output', metavar='filename', type=str,
-                    help='The file to write the results to; should end in .mat. Defaults to ./iteration_0001_results.mat.')
-parser.add_argument('--reg', action='store_true', help='Whether to use \
-                    regularization')
+parser.add_argument('-n', '--num-iter', metavar='N', type=int, default=1000,
+                    help='Number of iterations to perform. Defaults to 1000.')
+parser.add_argument('--reg', action='store_true', help='Whether to use regularization')
 args = parser.parse_args()
 
-print('Learning mapping from', os.path.basename(args.norm1), 'to', 
+print('Learning mapping from', os.path.basename(args.norm1), 'to',
       os.path.basename(args.norm2))
 
 #outpath = '/m/nbe/scratch/aaltonorms/results/zero_shot/perm'
+outpath = './results/perm/'
 normpath = '/m/nbe/scratch/aaltonorms/data/'
 norms = ["aaltoprod", "cslb", "vinson", "w2v_eng", "w2v_fin"]
+analysis = args.norm1 + "_" + args.norm2
 
+os.makedirs(outpath + analysis, exist_ok=True)
+
+#Determine output filename
+if not args.reg:
+    output = outpath + analysis + "/iteration_{iteration:04d}_results.mat"
+else:
+    output = outpath + analysis + "/iteration_{iteration:04d}_reg_results.mat"
 
 #Get data from the big excel file
-LUT = pd.read_excel('/m/nbe/scratch/aaltonorms/data/SuperNormList.xls', 
-                    encoding='utf-8', 
+LUT = pd.read_excel('/m/nbe/scratch/aaltonorms/data/SuperNormList.xls',
                     header=0, index_col=0)
 
 #Exclude homonyms, verbs and abstract words
@@ -47,24 +56,24 @@ LUT = LUT[LUT['action_words']==0]
 LUT = LUT[LUT['category']!="abstract_mid"]
 LUT = LUT[LUT['category']!="abstract_high"]
 
-norm1_vocab = pd.read_csv(normpath + args.norm1 + '/' + 'vocab.csv', 
-                          encoding='utf-8', 
-                         delimiter = '\t', header=None, index_col=0)
+norm1_vocab = pd.read_csv(normpath + args.norm1 + '/' + 'vocab.csv',
+                          encoding='utf-8',
+                          delimiter = '\t', header=None, index_col=0)
 
-norm2_vocab = pd.read_csv(normpath + args.norm2 + '/' + 'vocab.csv', 
-                          encoding='utf-8', 
-                         delimiter = '\t', header=None, index_col=0)
+norm2_vocab = pd.read_csv(normpath + args.norm2 + '/' + 'vocab.csv',
+                          encoding='utf-8',
+                          delimiter = '\t', header=None, index_col=0)
 
-norm1_vecs = pd.read_csv(normpath + args.norm1 + '/' + 'vectors.csv', 
-                         encoding='utf-8', delimiter = '\t', 
+norm1_vecs = pd.read_csv(normpath + args.norm1 + '/' + 'vectors.csv',
+                         encoding='utf-8', delimiter = '\t',
                          header=None, index_col=None)
 
-norm2_vecs = pd.read_csv(normpath + args.norm2 + '/' + 'vectors.csv', 
-                         encoding='utf-8', 
+norm2_vecs = pd.read_csv(normpath + args.norm2 + '/' + 'vectors.csv',
+                         encoding='utf-8',
                          delimiter = '\t', header=None, index_col=None)
 
 picks = LUT[LUT[norms[0]].notnull() & LUT[norms[1]].notnull() &
-            LUT[norms[2]].notnull() & LUT[norms[3]].notnull() & 
+            LUT[norms[2]].notnull() & LUT[norms[3]].notnull() &
             LUT[norms[4]].notnull()]
 
 print("Number of words: " + str(len(picks)))
@@ -80,9 +89,6 @@ norm2_vecs = norm2_vecs.loc[picks[args.norm2]]
 norm1 = norm1_vecs.values
 norm2 = norm2_vecs.values
 
-#Form permutation test, shuffle order of norm2
-#np.random.shuffle(norm2)
-
 num_words = len(norm1)
 assert len(norm2) == num_words
 
@@ -92,38 +98,38 @@ norm2_pred = np.zeros_like(norm2)
 if args.reg:
     print('Using regularization')
     # Regularized Linear Regression
-    mapping = RidgeCV(normalize=False, alphas=np.logspace(-5, 5, 100))
+    mapping = RidgeCV(alphas=np.logspace(-5, 5, 100))
 else:
     print('Not using regularization')
     # Plain Linear Regression
-    mapping = LinearRegression(normalize=False)
+    mapping = LinearRegression()
 
-for train, test in LeaveOneOut().split(norm1, norm2):
-    mapping.fit(norm1[train], norm2[train])
-    norm2_pred[test] = mapping.predict(norm1[test])
+for iteration in tqdm(range(1, args.num_iter + 1)):
+    # For permutation test, shuffle order of the vectors
+    np.random.shuffle(norm2)
+    np.random.shuffle(norm1)
 
-# See how well norm2_pred fits to norm2, in terms of accuracy
-dist = distance.cdist(norm2_pred, norm2, metric='cosine')
-accuracy = np.mean(dist.argmin(axis=1) == np.arange(num_words))
-print('Accuracy:', accuracy * 100, '%')
+    for train, test in LeaveOneOut().split(norm1, norm2):
+        mapping.fit(norm1[train], norm2[train])
+        norm2_pred[test] = mapping.predict(norm1[test])
 
-# Plot the confusion matrix
-confusion_matrix = np.zeros_like(dist)
-confusion_matrix[np.arange(num_words), dist.argmin(axis=1)] = 1
+    # See how well norm2_pred fits to norm2, in terms of accuracy
+    dist = distance.cdist(norm2_pred, norm2, metric='cosine')
+    accuracy = np.mean(dist.argmin(axis=1) == np.arange(num_words))
+    print('Accuracy:', accuracy * 100, '%')
 
-results = {
-    'overall_accuracy': accuracy,
-    'distance_matrix': dist,
-    'iteration': args.iteration,
-    'confusion_matrix': confusion_matrix
-}
+    # Create the confusion matrix
+    confusion_matrix = np.zeros_like(dist)
+    confusion_matrix[np.arange(num_words), dist.argmin(axis=1)] = 1
 
-savemat(args.output, results)
+    results = {
+        'overall_accuracy': accuracy,
+        'distance_matrix': dist,
+        'iteration': iteration,
+        'confusion_matrix': confusion_matrix,
+        'words': picks['eng_name'].values,
+        'categories': picks['category'].values,
+    }
 
-#Plot results
-fig = plt.figure(figsize=(8, 8))
-plt.imshow(confusion_matrix, cmap='gray_r', interpolation='nearest')
-plt.xlabel('Which word I thought it was')
-plt.ylabel('Which word it should have been')
-plt.title('Confusion matrix')
-#fig.save(norm1 + "_" + norm2 + "_confusion_matrix.png" )
+    savemat(output.format(iteration=iteration), results)
+    print("Saved results to: " + output.format(iteration=iteration))

@@ -33,12 +33,12 @@ for i, fname in enumerate(args.input_file, 1):
     #Checks which column index has the smallest distance to predicted and whether
     #it matches the predicted target index
     item_accuracy = np.mean(dist.argmin(axis=1) == np.arange(num_words))
-    
+
     within_acc_list = []
     for j, test in enumerate(dist.argmin(axis=1)):
         predicted_category = cateind[test]
         true_category = cateind[j]
-        
+
         if predicted_category == true_category:
             within_acc_list.append(1)
         else:
@@ -49,8 +49,8 @@ for i, fname in enumerate(args.input_file, 1):
         results.append([m['iteration'][0][0], item_accuracy, within_accuracy])
     else:
         results.append([item_accuracy, within_accuracy])
-    
-    
+
+
 # Collect all the results in one big table
 if 'iteration' in m:
     results = pd.DataFrame(results, columns=["iteration", "item-level", "category-level"])
